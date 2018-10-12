@@ -16,3 +16,4 @@ bind \e\[1\;5B history-token-search-forward
 bind \e\e\[B history-token-search-forward
 bind \ce edit_command_buffer
 bind \eH '__tldr'
+bind \eM '__mkdir_current'
