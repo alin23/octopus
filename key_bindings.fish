@@ -15,5 +15,6 @@ bind \e\e\[A history-token-search-backward
 bind \e\[1\;5B history-token-search-forward
 bind \e\e\[B history-token-search-forward
 bind \ce edit_command_buffer
-bind \eH '__tldr'
+bind \eT '__tldr'
+bind \eH '__help_cmd'
 bind \eM '__mkdir_current'
