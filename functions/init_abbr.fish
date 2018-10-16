@@ -3,7 +3,6 @@ function init_abbr
     abbr -a mux tmuxinator
     abbr -a sx 'sshmux'
     abbr -a sxc 'sshmux -CC'
-    abbr -a k 'sudo pkill -9 -f -l'
 
     # Package manager
     if not is_cygwin
@@ -44,6 +43,7 @@ function init_abbr
         abbr -a svcs 'brew services start'
         abbr -a svcr 'brew services restart'
         abbr -a svcp 'brew services stop'
+        abbr -a k 'sudo pkill -9 -f -l'
     else
         abbr -a svc 'systemctl --user'
         abbr -a svcs 'systemctl --user start'
@@ -62,6 +62,7 @@ function init_abbr
         abbr -a ssvcd 'sudo systemctl daemon-reload'
         abbr -a ssvcl 'sudo journalctl -f -n 100 -u'
         abbr -a ssvclc 'sudo journalctl -f -n 100 --output cat -u'
+        abbr -a k 'sudo pkill -9 -f -e'
     end
 
 
