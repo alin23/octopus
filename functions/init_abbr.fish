@@ -51,8 +51,8 @@ function init_abbr
         abbr -a svcp 'systemctl --user stop'
         abbr -a svct 'systemctl --user status'
         abbr -a svcd 'systemctl --user daemon-reload'
-        abbr -a svcl 'journalctl --user -f -n 100 -u'
-        abbr -a svclc 'journalctl --user -f -n 100 --output cat -u'
+        abbr -a svcl 'journalctl -f -n 100 --user-unit'
+        abbr -a svclc 'journalctl -f -n 100 --output cat --user-unit'
 
         abbr -a ssvc 'sudo systemctl'
         abbr -a ssvcs 'sudo systemctl start'
