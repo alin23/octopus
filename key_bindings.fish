@@ -18,4 +18,4 @@ bind \ce edit_command_buffer
 bind \eT '__tldr'
 bind \eH '__help_cmd'
 bind \eM '__mkdir_current'
-bind '~' 'commandline -it $HOME'
+bind '~' 'commandline -it $HOME/'
