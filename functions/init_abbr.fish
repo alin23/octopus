@@ -183,6 +183,10 @@ function init_abbr
     abbr -a rs 'rsub'
     abbr -a srs 'sudo rsub -f'
 
+    # Kakoune
+    abbr -a k 'kak'
+    abbr -a sk 'sudo kak'
+
     abbr -a tf 'tail -f -n 20'
     abbr -a f 'find . -iname '
     abbr -a mcr 'sudo mc -u'
@@ -196,11 +200,19 @@ function init_abbr
     abbr -a wgetext '\wget -r -l1 -t1 -nd -N -np -erobots=off -A.pdf'
     abbr -a vlc '/Applications/VLC.app/Contents/MacOS/VLC'
     abbr -a q 'chunkc tiling::query'
-    command_exists zou; and alias wget=zou
-    command_exists bat; and alias cat=bat
-    command_exists exa; and alias ls=exa
-    command_exists exa; and alias ll='exa -l'
-    command_exists exa; and alias la='exa -la'
-    not command_exists truncate; and alias truncate="gtruncate"
+    command_exists zou
+      and alias wget=zou
+    command_exists bat
+      and alias cat=bat
+    command_exists rural
+      and alias http=rural
+      and alias h=rural
+    command_exists exa
+      and alias ls=exa
+      and alias l=exa
+      and alias ll='exa -l'
+      and alias la='exa -la'
+    command_exists truncate
+      or alias truncate="gtruncate"
     alias tac=gtac
 end
