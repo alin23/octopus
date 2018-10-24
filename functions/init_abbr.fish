@@ -43,7 +43,7 @@ function init_abbr
         abbr -a svcs 'brew services start'
         abbr -a svcr 'brew services restart'
         abbr -a svcp 'brew services stop'
-        abbr -a k 'sudo pkill -9 -f -l'
+        abbr -a kl 'sudo pkill -9 -f -l'
     else
         abbr -a svc 'systemctl --user'
         abbr -a svcs 'systemctl --user start'
@@ -62,7 +62,7 @@ function init_abbr
         abbr -a ssvcd 'sudo systemctl daemon-reload'
         abbr -a ssvcl 'sudo journalctl -f -n 100 -u'
         abbr -a ssvclc 'sudo journalctl -f -n 100 --output cat -u'
-        abbr -a k 'sudo pkill -9 -f -e'
+        abbr -a kl 'sudo pkill -9 -f -e'
     end
 
 
