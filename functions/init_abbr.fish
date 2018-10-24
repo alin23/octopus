@@ -9,8 +9,9 @@ function init_abbr
         abbr -a i 'brew install'
         abbr -a nf 'brew info'
         abbr -a s 'brew search'
+        abbr -a cs 'brew search'
         abbr -a u 'brew uninstall'
-        abbr -a up 'brew update; and brew upgrade'
+        abbr -a bup 'brew update; and brew upgrade'
         abbr -a cnf 'brew cask info'
         abbr -a cu 'brew cask uninstall'
         abbr -a cup 'brew cu'
@@ -19,7 +20,7 @@ function init_abbr
         abbr -a nf 'apt-cyg show'
         abbr -a s 'apt-cyg search'
         abbr -a u 'apt-cyg remove'
-        abbr -a up 'apt-cyg update'
+        abbr -a aup 'apt-cyg update'
     end
 
     if not is_darwin
