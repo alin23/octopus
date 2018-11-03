@@ -2,6 +2,7 @@ bind \e\e 'bind_global_alias'
 bind \es 'set c (commandline -C); and commandline -C 0; and commandline -i "sudo "; and commandline -C (math $c+5)'
 bind \ew 'set c (commandline -C); and commandline -C 0; and commandline -i "which "; and commandline -C (math $c+6)'
 bind \e- 'prevd ^/dev/null >/dev/null; and commandline -f repaint'
+bind \e= 'nextd ^/dev/null >/dev/null; and commandline -f repaint'
 
 bind \e\[1\;5D backward-bigword
 bind \e\[1\;5C forward-bigword
