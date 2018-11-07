@@ -12,6 +12,7 @@ function init_env
 '--color fg:15,bg:-1,hl:13,fg+:6,bg+:0,hl+:11,'\
 'info:3,prompt:3,spinner:7,pointer:3,marker:9 '\
 '--bind \''\
+'alt-o:execute(open {}),'\
 'alt-d:execute(cd (dirname {})),'\
 'alt-s:execute(subl {}),'\
 'alt-t:execute(tail -f -n 20 {}),'\
