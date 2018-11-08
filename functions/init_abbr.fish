@@ -213,6 +213,7 @@ function init_abbr
       and alias l=exa
       and alias ll='exa -l'
       and alias la='exa -la'
+      and alias lt='exa -l -T'
     command_exists truncate
       or alias truncate="gtruncate"
     alias tac=gtac
