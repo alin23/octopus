@@ -217,4 +217,10 @@ function init_abbr
     command_exists truncate
       or alias truncate="gtruncate"
     alias tac=gtac
+
+    command_exists sga-ssh
+      and alias scp="scp -S sga-ssh"
+      and alias mosh="mosh --ssh=sga-ssh"
+      and set -xU GIT_SSH_COMMAND sga-ssh
+      and set -xU RSYNC_RSH sga-ssh
 end
