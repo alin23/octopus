@@ -30,7 +30,7 @@ function init_env
         set -xU ANDROID_SDK_ROOT $HOME/Library/Android/sdk/
         set -xU SCRIPTS "$HOME/Documents/Scripts/Python" "$HOME/Documents/Scripts/Shell" "$HOME/Documents/Scripts/AppleScript"
         set -xg PATH "$HOME/.bin" "$HOME/.cargo/bin" $SCRIPTS "$ANDROID_SDK_ROOT/emulator" "/usr/local/opt/sqlite/bin" "/usr/local/opt/ncurses/bin" "/usr/local/bin" "/usr/local/sbin" $PATH "$HOME/.yarn-config/global/node_modules/.bin" "/usr/local/opt/go/libexec/bin" "$GOPATH/bin" "/usr/local/opt/android-sdk/bin" "$HOME/.local/bin" "/usr/local/opt/coreutils/libexec/gnubin" 2>/dev/null
-        set -xg CDPATH "$CDPATH" "$HOME" "$HOME/Projects" "$HOME/Github" "$HOME/Github/*" "$HOME/Gitlab" "$HOME/Gitlab/*" 2>/dev/null
+        set -xg CDPATH "$CDPATH" "$HOME" "$HOME/Projects" "$HOME/Github" $HOME/Github/* "$HOME/Gitlab" $HOME/Gitlab/* 2>/dev/null
         set -xU PGDATA /usr/local/var/postgres
         command_exists rustc; and set -xU RUST_SRC_PATH (rustc --print sysroot)"/lib/rustlib/src/rust/src"
     else
