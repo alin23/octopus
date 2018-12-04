@@ -168,6 +168,8 @@ function init_abbr
     abbr -a pipu3 'pip3 uninstall'
     abbr -a pips3 'pip3 search'
 
+    abbr -a ptn 'pytest -s -p no:warnings'
+    abbr -a ptb 'pytest -s -p no:warnings --pudb -k'
     abbr -a pytb 'rainbow -f pytb --'
     abbr -a ipy 'ipython'
     abbr -a ipyml 'ipython --profile=ml'
@@ -219,8 +221,5 @@ function init_abbr
     alias tac=gtac
 
     command_exists sga-ssh
-      and alias scp="scp -S sga-ssh"
       and alias mosh="mosh --ssh=sga-ssh"
-      and set -xU GIT_SSH_COMMAND sga-ssh
-      and set -xU RSYNC_RSH sga-ssh
 end
