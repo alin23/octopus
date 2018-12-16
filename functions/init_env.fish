@@ -59,6 +59,6 @@ end
 
 function list_top_dirs
     if test -d $argv[1]
-        find -s $argv[1] \( -maxdepth 1 -and -type d \)
+        find $argv[1] \( -maxdepth 1 -and -type d \) | sort
     end
 end
