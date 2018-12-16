@@ -48,7 +48,7 @@ function init_env
         set -xg MANPATH "/home/linuxbrew/.linuxbrew/share/man" "$MANPATH"
         set -xg INFOPATH "/home/linuxbrew/.linuxbrew/share/info" "$INFOPATH"
     end
-    set -xg CDPATH "." "$CDPATH" "$HOME" "$HOME/Projects" "$HOME/.config" "$HOME/Github" (list_top_dirs /Users/alin/Github) "$HOME/Gitlab" (list_top_dirs /Users/alin/Gitlab) 2>/dev/null
+    set -xg CDPATH "." "$CDPATH" "$HOME" "$HOME/Projects" "$HOME/.config" "$HOME/Github" (list_top_dirs $HOME/Github) "$HOME/Gitlab" (list_top_dirs $HOME/Gitlab) 2>/dev/null
 
     if test -d $HOME/n
         set -xg N_PREFIX $HOME/n
