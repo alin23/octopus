@@ -7,6 +7,7 @@ function init_abbr
     # Package manager
     if not is_cygwin
         abbr -a i 'brew install'
+        abbr -a ci 'brew cask install'
         abbr -a nf 'brew info'
         abbr -a s 'brew search'
         abbr -a cs 'brew search'
