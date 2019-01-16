@@ -44,7 +44,7 @@ function init_env
             set -xg EDITOR vim
         end
 
-        set -xg PATH "$HOME/.bin" "$HOME/.cargo/bin" "/snap/bin" $PATH "/home/linuxbrew/.linuxbrew/bin" "/home/linuxbrew/.linuxbrew/sbin" "$GOPATH/bin" "/usr/sbin" "/sbin" 2>/dev/null
+        set -xg PATH "$HOME/.bin" "$HOME/.cargo/bin" "/snap/bin" "/home/linuxbrew/.linuxbrew/bin" $PATH "/home/linuxbrew/.linuxbrew/sbin" "$GOPATH/bin" "/usr/sbin" "/sbin" 2>/dev/null
         set -xg MANPATH "/home/linuxbrew/.linuxbrew/share/man" "$MANPATH"
         set -xg INFOPATH "/home/linuxbrew/.linuxbrew/share/info" "$INFOPATH"
     end

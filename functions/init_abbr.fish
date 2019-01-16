@@ -25,11 +25,14 @@ function init_abbr
     end
 
     if not is_darwin
-        abbr -a sx 'sshmux'
         abbr -a ai 'sudo apt install -y'
         abbr -a as 'apt search'
         abbr -a au 'sudo apt remove'
         abbr -a aup 'sudo apt update; and sudo apt full-upgrade'
+        abbr -a yi 'sudo yum install -y'
+        abbr -a ys 'yum search'
+        abbr -a yu 'sudo yum remove'
+        abbr -a yup 'sudo yum update'
     end
 
     # OS Specific
