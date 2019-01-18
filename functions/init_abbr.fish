@@ -52,6 +52,9 @@ function init_abbr
     else
         abbr -a svc 'systemctl --user'
         abbr -a svcs 'systemctl --user start'
+        abbr -a svced 'systemctl --user edit'
+        abbr -a svcen 'systemctl --user enable'
+        abbr -a svcdd 'systemctl --user disable'
         abbr -a svcr 'systemctl --user restart'
         abbr -a svcp 'systemctl --user stop'
         abbr -a svct 'systemctl --user status'
@@ -61,6 +64,9 @@ function init_abbr
 
         abbr -a ssvc 'sudo systemctl'
         abbr -a ssvcs 'sudo systemctl start'
+        abbr -a ssvced 'sudo systemctl edit'
+        abbr -a ssvcen 'sudo systemctl enable'
+        abbr -a ssvcdd 'sudo systemctl disable'
         abbr -a ssvcr 'sudo systemctl restart'
         abbr -a ssvcp 'sudo systemctl stop'
         abbr -a ssvct 'sudo systemctl status'
@@ -193,6 +199,14 @@ function init_abbr
     # Kakoune
     abbr -a k 'kak'
     abbr -a sk 'sudo kak'
+
+    # Docker
+    abbr -a dksl 'docker service logs'
+    abbr -a dkslf 'docker service logs -f'
+    abbr -a dksp 'docker service ps --no-trunc'
+    abbr -a dksls 'docker service ls'
+    abbr -a dkkd 'docker stack deploy'
+    abbr -a dkkr 'docker stack rm'
 
     abbr -a tf 'tail -f -n 20'
     abbr -a f 'find . -iname '
