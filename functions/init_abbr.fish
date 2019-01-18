@@ -201,10 +201,13 @@ function init_abbr
     abbr -a sk 'sudo kak'
 
     # Docker
+    abbr -a dks 'docker service'
+    abbr -a dkss 'docker service scale'
     abbr -a dksl 'docker service logs'
     abbr -a dkslf 'docker service logs -f'
     abbr -a dksp 'docker service ps --no-trunc'
     abbr -a dksls 'docker service ls'
+    abbr -a dkk 'docker stack'
     abbr -a dkkd 'docker stack deploy'
     abbr -a dkkr 'docker stack rm'
 
