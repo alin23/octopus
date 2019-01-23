@@ -161,6 +161,14 @@ function init_abbr
     abbr -a gss 'git stash show'
     abbr -a gsd 'git stash drop'
 
+    abbr -a gsc 'git secret'
+    abbr -a gsca 'git secret add'
+    abbr -a gscr 'git secret remove'
+    abbr -a gsch 'git secret hide'
+    abbr -a gscv 'git secret reveal'
+    abbr -a gscl 'git secret list'
+    abbr -a gsct 'git secret tell'
+
     # Python
     abbr -a pipi 'pip install -U --upgrade-strategy=eager'
     abbr -a pipr 'pip install -U --upgrade-strategy=eager -r'
