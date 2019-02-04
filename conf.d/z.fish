@@ -1,0 +1,1 @@
+source (lua $HOME/Github/skywind3000/z.lua/z.lua --init fish | psub)

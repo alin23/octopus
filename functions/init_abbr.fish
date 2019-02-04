@@ -251,4 +251,10 @@ function init_abbr
 
     command_exists sga-ssh
       and alias mosh="mosh --ssh=sga-ssh"
+
+    command_exists z
+        and alias zc='z -c'      # restrict matches to subdirs of $PWD
+        and alias zi='z -i'      # cd with interactive selection
+        and alias zz='z -I'      # use fzf to select in multiple matches
+        and alias zb='z -b'      # quickly cd to the parent directory
 end
