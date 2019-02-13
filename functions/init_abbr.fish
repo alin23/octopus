@@ -218,29 +218,24 @@ function init_abbr
     abbr -a dkk 'docker stack'
     abbr -a dkkd 'docker stack deploy'
     abbr -a dkkr 'docker stack rm'
+    abbr -a dk 'docker'
+    abbr -a dkc 'docker container'
+    abbr -a dki 'docker image'
+    abbr -a dkv 'docker volume'
+    abbr -a dkn 'docker network'
 
-    abbr -a tf 'tail -f -n 20'
+    abbr -a tf 'tail -f -n 100'
     abbr -a f 'find . -iname '
     abbr -a mcr 'sudo mc -u'
     abbr -a own 'sudo chown (whoami)'
     abbr -a ownall 'sudo chown -R (whoami)'
     abbr -a reload 'source $HOME/.config/fish/config.fish'
-    abbr -a stop 'sudo htop'
     abbr -a ydl 'youtube-dl'
-    abbr -a zshc 'subl $HOME/.zshrc; and subl $HOME/.zpreztorc'
     abbr -a fishc 'subl $HOME/.config/fish/config.fish'
-    abbr -a wgetext '\wget -r -l1 -t1 -nd -N -np -erobots=off -A.pdf'
+    abbr -a wgetext 'wget -r -l1 -t1 -nd -N -np -erobots=off -A.pdf'
     abbr -a vlc '/Applications/VLC.app/Contents/MacOS/VLC'
     abbr -a q 'chunkc tiling::query'
-    command_exists zou
-      and alias wget=zou
-    command_exists bat
-      and alias cat=bat
-    command_exists rural
-      and alias http=rural
-      and alias h=rural
     command_exists exa
-      and alias ls=exa
       and alias l=exa
       and alias ll='exa -l'
       and alias la='exa -la'
