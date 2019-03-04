@@ -36,7 +36,8 @@ function init_abbr
     end
 
     # OS Specific
-    if not is_darwin; and [ ! -d $HOME/.pyenv ]
+    if not is_darwin
+        and [ ! -d $HOME/.pyenv ]
         abbr -a pip 'sudo -H pip'
         abbr -a pip2 'sudo -H pip2'
     end
@@ -170,19 +171,19 @@ function init_abbr
     abbr -a gsct 'git secret tell'
 
     # Python
-    abbr -a pipi 'pip install -U --upgrade-strategy=eager'
-    abbr -a pipr 'pip install -U --upgrade-strategy=eager -r'
-    abbr -a pipe 'pip install -U --upgrade-strategy=eager -e .'
-    abbr -a pipreq 'pip install -r requirements.txt -U --upgrade-strategy=eager'
-    abbr -a pipdev 'pip install -r requirements-dev.txt -U --upgrade-strategy=eager'
+    abbr -a pipi 'pip install -U'
+    abbr -a pipr 'pip install -U -r'
+    abbr -a pipe 'pip install -U -e .'
+    abbr -a pipreq 'pip install -r requirements.txt -U'
+    abbr -a pipdev 'pip install -r requirements-dev.txt -U'
     abbr -a pipu 'pip uninstall'
     abbr -a pips 'pip search'
 
-    abbr -a pipi3 'pip3 install -U --upgrade-strategy=eager'
-    abbr -a pipr3 'pip3 install -U --upgrade-strategy=eager -r'
-    abbr -a pipe3 'pip3 install -U --upgrade-strategy=eager -e .'
-    abbr -a pipreq3 'pip3 install -r requirements.txt -U --upgrade-strategy=eager'
-    abbr -a pipdev3 'pip3 install -r requirements-dev.txt -U --upgrade-strategy=eager'
+    abbr -a pipi3 'pip3 install -U'
+    abbr -a pipr3 'pip3 install -U -r'
+    abbr -a pipe3 'pip3 install -U -e .'
+    abbr -a pipreq3 'pip3 install -r requirements.txt -U'
+    abbr -a pipdev3 'pip3 install -r requirements-dev.txt -U'
     abbr -a pipu3 'pip3 uninstall'
     abbr -a pips3 'pip3 search'
 
@@ -236,20 +237,20 @@ function init_abbr
     abbr -a vlc '/Applications/VLC.app/Contents/MacOS/VLC'
     abbr -a q 'chunkc tiling::query'
     command_exists exa
-      and alias l=exa
-      and alias ll='exa -l'
-      and alias la='exa -la'
-      and alias lt='exa -l -T'
+    and alias l=exa
+    and alias ll='exa -l'
+    and alias la='exa -la'
+    and alias lt='exa -l -T'
     command_exists truncate
-      or alias truncate="gtruncate"
+    or alias truncate="gtruncate"
     alias tac=gtac
 
     command_exists sga-ssh
-      and alias mosh="mosh --ssh=sga-ssh"
+    and alias mosh="mosh --ssh=sga-ssh"
 
     command_exists z
-        and alias zc='z -c'      # restrict matches to subdirs of $PWD
-        and alias zi='z -i'      # cd with interactive selection
-        and alias zz='z -I'      # use fzf to select in multiple matches
-        and alias zb='z -b'      # quickly cd to the parent directory
+    and alias zc='z -c' # restrict matches to subdirs of $PWD
+    and alias zi='z -i' # cd with interactive selection
+    and alias zz='z -I' # use fzf to select in multiple matches
+    and alias zb='z -b' # quickly cd to the parent directory
 end
