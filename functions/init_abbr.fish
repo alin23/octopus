@@ -237,6 +237,7 @@ function init_abbr
     abbr -a dcpa 'docker-compose pause'
     abbr -a dcun 'docker-compose unpause'
     abbr -a dcev 'docker-compose events'
+    alias dcrr='docker-compose rm -s -f $argv[1] && docker-compose up -d $argv[1]'
 
     abbr -a dks 'docker service'
     abbr -a dkss 'docker service scale'
