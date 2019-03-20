@@ -1,5 +1,5 @@
 function init_gpg
-    if not is_cygwin
+    if not is_cygwin; and command_exists gpg-agent
         if is_darwin
             alias gpg_agent_running='pgrep -q gpg-agent'
         else
