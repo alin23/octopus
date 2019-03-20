@@ -215,11 +215,28 @@ function init_abbr
     abbr -a dcu 'docker-compose up'
     abbr -a dcud 'docker-compose up -d'
 
-    abbr -a dcrs 'docker-compose restart'
+    abbr -a dcr 'docker-compose restart'
+    abbr -a dcs 'docker-compose start'
+
     abbr -a dcrm 'docker-compose rm'
     abbr -a dcrms 'docker-compose rm -s'
-    abbr -a dcrmsf 'docker-compose rm -s -f'
     abbr -a dcrmf 'docker-compose rm -f'
+    abbr -a dcrmsf 'docker-compose rm -s -f'
+
+    abbr -a dcb 'docker-compose build'
+    abbr -a dcd 'docker-compose down'
+    abbr -a dcc 'docker-compose config'
+    abbr -a dce 'docker-compose exec'
+    abbr -a dcl 'docker-compose logs'
+    abbr -a dclf 'docker-compose logs -f'
+    abbr -a dcp 'docker-compose port'
+    abbr -a dcps 'docker-compose ps'
+    abbr -a dcrn 'docker-compose run'
+    abbr -a dct 'docker-compose top'
+
+    abbr -a dcpa 'docker-compose pause'
+    abbr -a dcun 'docker-compose unpause'
+    abbr -a dcev 'docker-compose events'
 
     abbr -a dks 'docker service'
     abbr -a dkss 'docker service scale'
