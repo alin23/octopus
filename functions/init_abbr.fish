@@ -210,6 +210,17 @@ function init_abbr
     abbr -a sk 'sudo kak'
 
     # Docker
+    abbr -a dcm 'docker-compose'
+
+    abbr -a dcu 'docker-compose up'
+    abbr -a dcud 'docker-compose up -d'
+
+    abbr -a dcrs 'docker-compose restart'
+    abbr -a dcrm 'docker-compose rm'
+    abbr -a dcrms 'docker-compose rm -s'
+    abbr -a dcrmsf 'docker-compose rm -s -f'
+    abbr -a dcrmf 'docker-compose rm -f'
+
     abbr -a dks 'docker service'
     abbr -a dkss 'docker service scale'
     abbr -a dksl 'docker service logs'
