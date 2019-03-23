@@ -3,6 +3,7 @@ function set_rust_src_path
 end
 
 function init_env
+    set -xg LESSCHARSET utf-8
     set -xg PYTHONBREAKPOINT "pudb.set_trace"
     set -xg CLICOLOR "1"
     set -xg GOPATH "$HOME/.go"
