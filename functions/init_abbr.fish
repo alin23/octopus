@@ -106,6 +106,8 @@ function init_abbr
     abbr -a ga 'git add'
     abbr -a gaa 'git add .'
 
+    abbr -a gdfc 'git difftool --no-symlinks --dir-diff --cached'
+    abbr -a gdc 'git diff --cached'
     abbr -a gdf 'git difftool --no-symlinks --dir-diff'
     abbr -a gd 'git diff'
 
