@@ -256,6 +256,7 @@ function init_abbr
     abbr -a dki 'docker image'
     abbr -a dkv 'docker volume'
     abbr -a dkn 'docker network'
+    abbr -a dkps 'docker ps'
 
     abbr -a tf 'tail -f -n 100'
     abbr -a f 'find . -iname '
