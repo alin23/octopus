@@ -14,8 +14,8 @@ function init_env
     set -xg NODE_ENV "development"
 
     set -xg FZF_DEFAULT_OPTS \
-'--header=\'alt-o: open | alt-d: cd | alt-s: subl | alt-t: tail | alt-l: less | alt-c: copy\''\
-'--multi'\
+'--header=\'alt-o: open | alt-d: cd | alt-s: subl | alt-t: tail | alt-l: less | alt-c: copy\' '\
+'--multi '\
 '--color fg:15,bg:-1,hl:11,fg+:15,bg+:12,hl+:0,'\
 'info:3,prompt:3,spinner:7,pointer:3,marker:9 '\
 '--bind \''\
