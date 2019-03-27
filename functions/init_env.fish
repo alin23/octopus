@@ -4,6 +4,15 @@ end
 
 function init_env
     set -xg LESSCHARSET utf-8
+    set -xg LESS '-r --quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
+    set -xg LESS_TERMCAP_mb (set_color -o brred) # begin bold
+    set -xg LESS_TERMCAP_md (set_color brred) # begin blink
+    set -xg LESS_TERMCAP_me (set_color normal) # reset bold/blink
+    set -xg LESS_TERMCAP_se (set_color normal) # reset reverse video
+    set -xg LESS_TERMCAP_so (set_color -o -b yellow black) # begin reverse video
+    set -xg LESS_TERMCAP_ue (set_color normal) # reset underline
+    set -xg LESS_TERMCAP_us (set_color brgreen) # begin underline
+
     set -xg PYTHONBREAKPOINT "pudb.set_trace"
     set -xg CLICOLOR "1"
     set -xg GOPATH "$HOME/.go"
