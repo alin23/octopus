@@ -5,4 +5,5 @@ function catfile
     else
         less $file
     end
+    commandline -f repaint
 end
