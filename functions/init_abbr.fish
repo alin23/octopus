@@ -37,7 +37,7 @@ function init_abbr
 
     # OS Specific
     if not is_darwin
-        and [ ! -d $HOME/.pyenv ]
+        and not test -d $HOME/.pyenv
         abbr -a pip 'sudo -H pip'
         abbr -a pip2 'sudo -H pip2'
     end
