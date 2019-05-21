@@ -269,6 +269,9 @@ function init_abbr
     abbr -a wgetext 'wget -r -l1 -t1 -nd -N -np -erobots=off -A.pdf'
     abbr -a vlc '/Applications/VLC.app/Contents/MacOS/VLC'
     abbr -a q 'chunkc tiling::query'
+    abbr -a wh 'which'
+    abbr -a wa 'watch -d --color'
+
     command_exists exa
     and alias l=exa
     and alias ll='exa -l'
