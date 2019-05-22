@@ -272,11 +272,18 @@ function init_abbr
     abbr -a wh 'which'
     abbr -a wa 'watch -d --color'
 
-    command_exists exa
-    and alias l=exa
-    and alias ll='exa -l'
-    and alias la='exa -la'
-    and alias lt='exa -l -T'
+    if command_exists lsd
+        alias l=lsd
+        alias ll='lsd -l'
+        alias la='lsd -la'
+        alias lt='lsd -l -T'
+    else if command_exists exa
+        alias l=exa
+        alias ll='exa -l'
+        alias la='exa -la'
+        alias lt='exa -l -T'
+    end
+
     command_exists truncate
     or alias truncate="gtruncate"
     alias tac=gtac
