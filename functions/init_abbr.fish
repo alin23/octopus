@@ -272,6 +272,10 @@ function init_abbr
     abbr -a wh 'which'
     abbr -a wa 'watch -d --color'
 
+    if command_exists kitty
+        abbr -a icat 'kitty +kitten icat'
+        abbr -a kdf 'kitty +kitten diff'
+    end
     if command_exists lsd
         alias l=lsd
         alias ll='lsd -l'
