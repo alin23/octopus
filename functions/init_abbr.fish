@@ -279,7 +279,7 @@ function init_abbr
     if command_exists lsd
         alias l=lsd
         alias ll='lsd -l'
-        alias la='lsd -la'
+        alias la='lsd -lA'
         alias lt='lsd -l -T'
     else if command_exists exa
         alias l=exa
