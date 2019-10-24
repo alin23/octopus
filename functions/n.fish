@@ -1,4 +1,4 @@
-function n --description 'support nnn quit and change directory'
+function nn --description 'support nnn quit and change directory'
     if test -n "$XDG_CONFIG_HOME"
         set -x NNN_TMPFILE "$XDG_CONFIG_HOME/nnn/.lastd"
     else
