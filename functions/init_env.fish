@@ -29,7 +29,8 @@ function init_env
 
     set -xg PYTHONBREAKPOINT "pudb.set_trace"
     set -xg CLICOLOR "1"
-    set -xg GOPATH "$HOME/.go"
+    set -xg GOPATH "$HOME/go"
+    set -xg GOBIN "$GOPATH/bin"
     set -xg GPG_TTY (tty)
     set -xg LANG "en_US.UTF-8"
     set -xg LANGUAGE "en_US.UTF-8"
@@ -60,7 +61,7 @@ function init_env
         set -xg ANDROID_HOME $HOME/Library/Android/sdk/
         set -xg ANDROID_SDK_ROOT $HOME/Library/Android/sdk/
         set -xg SCRIPTS "$HOME/Documents/Scripts/Python" "$HOME/Documents/Scripts/Shell" "$HOME/Documents/Scripts/AppleScript"
-        set -xg PATH "$HOME/.bin" "$HOME/.cargo/bin" $SCRIPTS "$ANDROID_SDK_ROOT/emulator" "/usr/local/opt/sqlite/bin" "/usr/local/opt/ncurses/bin" "/usr/local/bin" "/usr/local/sbin" $PATH "$HOME/.yarn-config/global/node_modules/.bin" "/usr/local/opt/go/libexec/bin" "$GOPATH/bin" "/usr/local/opt/android-sdk/bin" "$HOME/.local/bin" "/usr/local/opt/coreutils/libexec/gnubin" 2>/dev/null
+        set -xg PATH "$HOME/.bin" "$HOME/.cargo/bin" $SCRIPTS "$ANDROID_SDK_ROOT/emulator" "/usr/local/opt/sqlite/bin" "/usr/local/opt/ncurses/bin" "/usr/local/bin" "/usr/local/sbin" $PATH "$HOME/.yarn-config/global/node_modules/.bin" "/usr/local/opt/go/libexec/bin" "$GOBIN" "/usr/local/opt/android-sdk/bin" "$HOME/.local/bin" "/usr/local/opt/coreutils/libexec/gnubin" 2>/dev/null
         set -xg PGDATA /usr/local/var/postgres
     else
         if command_exists kak
