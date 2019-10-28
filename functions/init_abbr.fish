@@ -282,7 +282,7 @@ function init_abbr
         alias l=lsd
         alias ll='lsd -l'
         alias la='lsd -lA'
-        alias lt='lsd -l -T'
+        alias lt='lsd -l --tree'
     else if command_exists exa
         alias l=exa
         alias ll='exa -l'
