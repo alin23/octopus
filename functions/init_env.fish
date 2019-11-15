@@ -31,6 +31,7 @@ function init_env
     set -xg CLICOLOR "1"
     set -xg GOPATH "$HOME/go"
     set -xg GOBIN "$GOPATH/bin"
+    set -xg HELM_HOME "$HOME/.helm"
     set -xg GPG_TTY (tty)
     set -xg LANG "en_US.UTF-8"
     set -xg LANGUAGE "en_US.UTF-8"
