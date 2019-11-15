@@ -209,6 +209,9 @@ function init_abbr
     abbr -a rs 'rsub'
     abbr -a srs 'sudo rsub -f'
 
+    # Kubernetes
+    abbr -a kc 'kubectl'
+
     # Kakoune
     abbr -a k 'kak'
     abbr -a sk 'sudo kak'
