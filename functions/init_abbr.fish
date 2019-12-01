@@ -211,6 +211,22 @@ function init_abbr
 
     # Kubernetes
     abbr -a kc 'kubectl'
+    abbr -a kcg 'kubectl get'
+    abbr -a kcd 'kubectl describe'
+
+    abbr -a kcgp 'kubectl get pods'
+    abbr -a kcgd 'kubectl get deployments'
+    abbr -a kcgr 'kubectl get replicasets'
+    abbr -a kcgs 'kubectl get services'
+
+    abbr -a kcdp 'kubectl describe pods'
+    abbr -a kcdd 'kubectl describe deployments'
+    abbr -a kcdr 'kubectl describe replicasets'
+    abbr -a kcds 'kubectl describe services'
+
+    abbr -a kcgpw 'kubectl get pod -o wide'
+    abbr -a kcgdw 'kubectl get deployments -o wide'
+    abbr -a kcgrw 'kubectl get replicasets -o wide'
 
     # Kakoune
     abbr -a k 'kak'
