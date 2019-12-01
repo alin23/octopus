@@ -1,7 +1,13 @@
-function transfer -d "Upload to transfer.sh" -a file name
+function transfer -d "Upload to transfer.sh" -a file name maxDownloads maxDays
     set -l tmp (mktemp -t transferXXX)
 
-    if test -z $name
+    set -q maxDownloads[1]
+    or set maxDownloads[1] "5"
+
+    set -q maxDays[1]
+    or set maxDays[1] "3"
+
+    if test -z "$name"
         if not isatty
             set name $file
         else if test -n "$file"
@@ -9,7 +15,7 @@ function transfer -d "Upload to transfer.sh" -a file name
         end
     end
 
-    if test -z $name
+    if test -z "$name"
         set name (random)
     end
 
@@ -17,17 +23,17 @@ function transfer -d "Upload to transfer.sh" -a file name
         set file ""
     end
 
-    set name (echo $name | sed -e 's/[^a-zA-Z0-9._-]/-/g')
-    set name (echo $name | sed -e 's/-\{1,\}/-/g')
+    set name (echo "$name" | sed -e 's/[^a-zA-Z0-9._-]/-/g')
+    set name (echo "$name" | sed -e 's/-\{1,\}/-/g')
 
     if test -n "$file"
         if not test -r "$file"
             echo "transfer: can not read the file." > /dev/stderr
             return 1
         end
-        curl --progress-bar --upload-file $file https://transfer.sh/$name >> $tmp
+        curl -H "Max-Downloads: $maxDownloads" -H "Max-Days: $maxDays"  --progress-bar --upload-file $file https://transfer.sh/"$name" >> $tmp
     else
-        curl --progress-bar --upload-file - https://transfer.sh/$name >> $tmp
+        curl -H "Max-Downloads: $maxDownloads" -H "Max-Days: $maxDays"  --progress-bar --upload-file - https://transfer.sh/"$name" >> $tmp
     end
 
     cat $tmp
