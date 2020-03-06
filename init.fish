@@ -1,7 +1,11 @@
-init_abbr
+if not set -q NO_FISH_INIT
+    init_abbr
+end
 init_env
-init_pyenv
-init_rbenv
-init_gpg &
+if not set -q NO_FISH_INIT
+    init_pyenv
+    init_rbenv
+    init_gpg &
+end
 # init_iterm
 # showmail
