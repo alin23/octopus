@@ -45,13 +45,7 @@ function init_env
     '--header=\'alt-o: open | alt-d: cd | alt-s: subl | alt-t: tail | alt-l: less | alt-c: copy\' '\
     '--multi '\
     '--color fg:15,bg:-1,hl:11,fg+:15,bg+:12,hl+:0,info:3,prompt:3,spinner:7,pointer:3,marker:9 '\
-    '--bind \''\
-    'alt-o:execute(open {}),'\
-    'alt-d:execute(cd (dirname {})),'\
-    'alt-s:execute(subl {}),'\
-    'alt-t:execute(tail -f -n 20 {}),'\
-    'alt-l:execute(less -f {}),'\
-    'alt-c:execute-silent(echo {} | pbcopy)+abort\''
+    '--bind \'alt-o:execute(open {}),alt-d:execute(cd (dirname {})),alt-s:execute(subl {}),alt-t:execute(tail -f -n 20 {}),alt-l:execute(less -f {}),alt-c:execute-silent(echo {} | pbcopy)+abort\''
     end
 
     set_rust_src_path &
