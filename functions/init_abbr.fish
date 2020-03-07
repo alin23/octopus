@@ -85,7 +85,7 @@ function init_abbr
     abbr -a gbr 'git branch -r'
     abbr -a gba 'git branch -a'
     abbr -a gbl 'git branch -l'
-    abbr -a gbc 'git branch -c'
+    abbr -a gbc 'git checkout -b'
     abbr -a gbm 'git branch -m'
     abbr -a gbd 'git branch -d'
     abbr -a gbdd 'git branch -D'
