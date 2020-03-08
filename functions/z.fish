@@ -6,7 +6,9 @@ function z
                 cd (string sub -s 8 -- "$_Z_RESULT")
                 commandline -f repaint
             case '*'
-                echo "$_Z_RESULT"
+                if test -n "$_Z_RESULT"
+                    echo "$_Z_RESULT"
+                end
         end
     end
 end
