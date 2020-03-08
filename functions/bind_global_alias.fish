@@ -4,6 +4,10 @@ function bind_global_alias
         commandline -rt '| fzf'
     case "l"
         commandline -rt '| less'
+    case "b"
+        commandline -rt '| bat --color always'
+    case "s"
+        commandline -rt '| subl -'
     case "h"
         commandline -rt '| head'
     case "t"
@@ -18,8 +22,6 @@ function bind_global_alias
         commandline -rt '| wc -l'
     case "c"
         commandline -rt '| pbcopy'
-    case "n"
-        commandline -rt '; echo iTerm command finished: (fc -ln -1)'
     case "x"
         commandline -rt '| xargs -0 -I \{\} echo \'{}\''; and commandline -C (math (commandline -C) - 5)
     end
