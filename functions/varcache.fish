@@ -1,9 +1,6 @@
 function varcache_expired
-    argparse 't/timevarkey' 'e/expiration' -- $argv
-    set cached_at $_flag_timevarkey
-    set exp (date -r $cached_at -v +$_flag_expiration +%s)
-    echo Cached At $cached_at
-    echo Expires at $exp
+    argparse 'c/cachedat=' 'e/expiration=' -- $argv
+    set exp (date -r $_flag_cachedat -v +$_flag_expiration +%s)
     test $exp -gt (date +%s)
 end
 
@@ -17,7 +14,7 @@ function varcache
     set cmd $argv[2]
     set expiration $argv[3]
 
-    if set -q $timevarkey; and varcache_expired -t $$timevarkey -e $expiration
+    if set -q $timevarkey; and varcache_expired -c $$timevarkey -e $expiration
         if test (count $argv) -ge 4; and test "$argv[4]" = "compressed"
             echo $$varkey | base64 -D | gunzip
         else
