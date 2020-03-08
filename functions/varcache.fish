@@ -11,6 +11,8 @@ function varcache
     if set -q $timevarkey
         set cached_at $$timevarkey
         set exp (date -v +$expiration +%s)
+        echo Cached At $cached_at
+        echo Expires at $exp
         if test $exp -gt $cached_at
             if test (count $argv) -ge 4; and test "$argv[4]" = "compressed"
                 echo $$varkey | base64 -D | gunzip
@@ -32,7 +34,7 @@ function varcache
         else
             echo $content
         end
-        return 2
+        return 0
     end
 end
 
