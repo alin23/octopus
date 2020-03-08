@@ -12,11 +12,19 @@ function varcache
         set cached_at $$timevarkey
         set exp (date -v +$expiration +%s)
         if test $exp -gt $cached_at
-            echo $$varkey
+            if test (count $argv) -ge 4; and test "$argv[4]" = "gzip"
+                echo $$varkey | base64 -D | gunzip
+            else
+                echo $$varkey
+            end
             return 0
         end
     else
-        set -U $varkey $content
+        if test (count $argv) -ge 4; and test "$argv[4]" = "gzip"
+            set -U $varkey (echo $content | gzip | base64)
+        else
+            set -U $varkey $content
+        end
         set -U $timevarkey (date +%s)
         echo $content
         return 2
