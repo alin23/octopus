@@ -106,7 +106,7 @@ function init_abbr
         abbr -a gbr 'git branch -r'
         abbr -a gba 'git branch -a'
         abbr -a gbl 'git branch -l'
-        abbr -a gbc 'git checkout -b'
+        abbr -a gbc 'git branch -c'
         abbr -a gbm 'git branch -m'
         abbr -a gbd 'git branch -d'
         abbr -a gbdd 'git branch -D'
@@ -123,6 +123,7 @@ function init_abbr
         abbr -a gpf 'git push --force'
         abbr -a gpc 'git push --set-upstream origin (git symbolic-ref --short HEAD 2>/dev/null)'
         abbr -a gco 'git checkout'
+        abbr -a gcb 'git checkout -b'
         abbr -a gcom 'git checkout master'
         abbr -a gcod 'git checkout develop'
 
