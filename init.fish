@@ -1,5 +1,9 @@
 if not set -q NO_FISH_INIT
-    init_z
+    if command_exists zoxide
+        function init_z --on-event fish_prompt
+            zoxide add
+        end
+    end
     init_abbr
 end
 init_env

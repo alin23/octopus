@@ -326,15 +326,21 @@ function init_abbr
 
     abbr -a tf 'tail -f -n 100'
     abbr -a f 'find . -iname '
-    abbr -a mcr 'sudo mc -u'
     abbr -a own 'sudo chown (whoami)'
     abbr -a ownall 'sudo chown -R (whoami)'
     abbr -a reload 'source $HOME/.config/fish/config.fish'
-    abbr -a ydl 'youtube-dl'
     abbr -a wgetext 'wget -r -l1 -t1 -nd -N -np -erobots=off -A.pdf'
-    abbr -a vlc '/Applications/VLC.app/Contents/MacOS/VLC'
     abbr -a wh 'which'
     abbr -a wa 'watch -d --color'
+    if command_exists mc
+        abbr -a mcr 'sudo mc -u'
+    end
+    if command_exists youtube-dl
+        abbr -a ydl 'youtube-dl'
+    end
+    if test -f /Applications/VLC.app/Contents/MacOS/VLC
+        abbr -a vlc '/Applications/VLC.app/Contents/MacOS/VLC'
+    end
 
     if command_exists kitty
         abbr -a icat 'kitty +kitten icat'
