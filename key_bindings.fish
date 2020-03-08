@@ -31,6 +31,6 @@ bind § 'commandline -it "~"'
 bind \eb 'catfile'
 bind \cs 'editfile'
 bind \ct 'transpose-words'
-# if command_exists zoxide
-#     bind \ez 'z -i'
-# end
+if command_exists zoxide
+    bind \ez 'z -i'
+end
