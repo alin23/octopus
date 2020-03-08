@@ -361,9 +361,9 @@ function init_abbr
     and alias mosh="mosh --ssh=sga-ssh"
 
     if command_exists zoxide
-        abbr -a zi="z -i"
-        abbr -a za="zoxide add"
-        abbr -a zq="zoxide query"
-        abbr -a zr="zoxide remove"
+        abbr -a zi "z -i"
+        abbr -a za "zoxide add"
+        abbr -a zq "zoxide query"
+        abbr -a zr "zoxide remove"
     end
 end
