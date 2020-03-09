@@ -23,7 +23,7 @@ function varcache
 
     if set -q $timevarkey; and varcache_expired -c $$timevarkey -e $expiration
         if test (count $argv) -ge 4; and test "$argv[4]" = "compressed"
-            echo $$varkey | base64 -D | gunzip
+            echo $$varkey | base64 -d | gunzip
         else
             echo $$varkey
         end
@@ -36,7 +36,7 @@ function varcache
         set -U $varkey $content
         set -U $timevarkey ($date_command +%s)
         if test (count $argv) -ge 4; and test "$argv[4]" = "compressed"
-            echo $content | base64 -D | gunzip
+            echo $content | base64 -d | gunzip
         else
             echo $content
         end

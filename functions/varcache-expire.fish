@@ -1,5 +1,5 @@
 function varcache-expire
-    if test (count $argv) -lt 3
+    if test (count $argv) -eq 0
         echo "Usage: varcache KEY"
         return 1
     end
