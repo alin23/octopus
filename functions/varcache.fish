@@ -1,6 +1,13 @@
+if command_exists gdate
+    set date_command 'gdate'
+else
+    set date_command 'date'
+end
+
 function varcache_expired
     argparse 'c/cachedat=' 'e/expiration=' -- $argv
-    set exp (date -r $_flag_cachedat -v +$_flag_expiration +%s)
+    # set exp (date -r $_flag_cachedat -v +$_flag_expiration +%s)
+    set exp ($date_command -d ($date_command -d "@$_flag_cachedat")"+$_flag_expiration" +%s)
     test $exp -gt (date +%s)
 end
 
@@ -27,7 +34,7 @@ function varcache
 
         set content (eval $cmd)
         set -U $varkey $content
-        set -U $timevarkey (date +%s)
+        set -U $timevarkey ($date_command +%s)
         if test (count $argv) -ge 4; and test "$argv[4]" = "compressed"
             echo $content | base64 -D | gunzip
         else
