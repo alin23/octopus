@@ -38,12 +38,12 @@ end
 
 bind \cx\cf "pipeto fzf"
 bind \cx\cl "pipeto less"
-bind \cx\cb "pipeto bat --color always"
-bind \cx\cs "pipeto subl -"
+bind \cx\cb "pipeto 'bat --color always'"
+bind \cx\cs "pipeto 'subl -'"
 bind \cx\ch "pipeto head"
-bind \cx\ct "pipeto tail -f"
-bind \cx\cw "pipeto wc -l"
+bind \cx\ct "pipeto 'tail -f'"
+bind \cx\cw "pipeto 'wc -l'"
 bind \cx\cc "pipeto pbcopy"
 
 bind \cx\cx "commandline -rt '| xargs -0 -I \{\} echo \'{}\''; and commandline -C (math (commandline -C) - 5)"
-bind \cx\cg "commandline -rt '| grep -i '"
+bind \cx\cg "commandline -rt '| rg -i '"
