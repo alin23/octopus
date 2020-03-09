@@ -349,23 +349,23 @@ function init_abbr
     end
 
     if command_exists lsd
-        alias l=lsd
-        alias ll='lsd -l'
-        alias la='lsd -lA'
-        alias lt='lsd -l --tree'
+        abbr -a l lsd
+        abbr -a ll 'lsd -l'
+        abbr -a la 'lsd -lA'
+        abbr -a lt 'lsd -l --tree'
     else if command_exists exa
-        alias l=exa
-        alias ll='exa -l'
-        alias la='exa -la'
-        alias lt='exa -l -T'
+        abbr -a l exa
+        abbr -a ll 'exa -l'
+        abbr -a la 'exa -la'
+        abbr -a lt 'exa -l -T'
     end
 
     command_exists truncate
-    or alias truncate="gtruncate"
-    alias tac=gtac
+    or abbr -a truncate "gtruncate"
+    abbr -a tac gtac
 
     command_exists sga-ssh
-    and alias mosh="mosh --ssh=sga-ssh"
+    and abbr -a mosh "mosh --ssh=sga-ssh"
 
     if command_exists zoxide
         abbr -a zi "z -i"

@@ -37,13 +37,14 @@ if command_exists zoxide
 end
 
 bind \cx\cf "pipeto fzf"
-bind \cx\cl "pipeto less"
 bind \cx\cb "pipeto 'bat --color always'"
-bind \cx\cs "pipeto 'subl -'"
+bind \cx\cs "sudo (commandline); commandline -f repaint"
+bind \cx\ce "pipeto 'subl -'"
 bind \cx\ch "pipeto head"
 bind \cx\ct "pipeto 'tail -f'"
-bind \cx\cw "pipeto 'wc -l'"
+bind \cx\cl "pipeto 'wc -l'"
 bind \cx\cc "pipeto pbcopy"
+bind \cx\cw "eval watch -d --color (commandline); commandline -f repaint"
 
-bind \cx\cx "commandline -rt '| xargs -0 -I \{\} echo \'{}\''; and commandline -C (math (commandline -C) - 5)"
-bind \cx\cg "commandline -rt '| rg -i '"
+bind \cx\cx "commandline -it ' | xargs -0 -I \{\} echo \'{}\''; and commandline -C (math (commandline -C) - 5)"
+bind \cx\cg "commandline -it ' | rg -i '"
