@@ -31,7 +31,7 @@ bind \\ 'commandline -it " | "'
 bind \e\| 'commandline -it "\\\"'
 bind \eb 'catfile'
 bind \ce 'editfile'
-bind \cs 'echo ''; eval sudo (history -1); commandline -f repaint'
+bind \cs 'echo ''; echo Executing sudo (history -1); eval sudo (history -1); commandline -f repaint'
 bind \ct 'transpose-words'
 if command_exists zoxide
     bind \ez 'z -i'
