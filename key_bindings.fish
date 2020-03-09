@@ -38,7 +38,7 @@ end
 
 bind \cx\cf "pipeto fzf"
 bind \cx\cb "pipeto 'bat --color always'"
-bind \cx\cs "sudo (commandline); commandline -f repaint"
+bind \cx\cs "echo ''; eval sudo (commandline); commandline -f repaint"
 bind \cx\ce "pipeto 'subl -'"
 bind \cx\ch "pipeto head"
 bind \cx\ct "pipeto 'tail -f'"
