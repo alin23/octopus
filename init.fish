@@ -1,3 +1,16 @@
+if command_exists gdate
+    set -xg _date_command 'gdate'
+else
+    set -xg _date_command 'date'
+end
+
+if command_exists gbase64
+    set -xg _base64_command 'gbase64'
+else
+    set -xg _base64_command 'base64'
+end
+
+
 function init_z --on-event fish_prompt
     if command_exists zoxide
         zoxide add
