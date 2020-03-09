@@ -1,4 +1,3 @@
-bind \e\e 'bind_global_alias'
 bind \es 'set c (commandline -C); and commandline -C 0; and commandline -i "sudo "; and commandline -C (math $c+5)'
 bind \ew 'printf "\n%s\n" (which (commandline -t)); and commandline -f repaint'
 bind \e- 'prevd ^/dev/null >/dev/null; and commandline -f repaint'
@@ -36,3 +35,15 @@ bind \ct 'transpose-words'
 if command_exists zoxide
     bind \ez 'z -i'
 end
+
+bind \cx\cf "pipeto fzf"
+bind \cx\cl "pipeto less"
+bind \cx\cb "pipeto bat --color always"
+bind \cx\cs "pipeto subl -"
+bind \cx\ch "pipeto head"
+bind \cx\ct "pipeto tail -f"
+bind \cx\cw "pipeto wc -l"
+bind \cx\cc "pipeto pbcopy"
+
+bind \cx\cx "commandline -rt '| xargs -0 -I \{\} echo \'{}\''; and commandline -C (math (commandline -C) - 5)"
+bind \cx\cg "commandline -rt '| grep -i '"
