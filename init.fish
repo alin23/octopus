@@ -10,8 +10,19 @@ else
     set -xg _base64_command 'base64'
 end
 
-function init_z --on-event fish_postexec
-    if contains cd (string split -- ' ' "$argv[1]"); and command_exists zoxide
+function __zoxide_check_pwd_changed --on-event fish_preexec
+    if command_exists zoxide; and contains cd (string split -- ' ' "$argv[1]")
+        set -g __CD_COMMAND_EXEC "$argv[1]"
+        set -g __CD_COMMAND_PWD "$PWD"
+    end
+end
+
+function __zoxide_add --on-event fish_postexec
+    if command_exists zoxide;
+        and set -q __CD_COMMAND_EXEC;
+        and test "$__CD_COMMAND_EXEC" = "$argv[1]";
+        and set -q __CD_COMMAND_PWD;
+        and test "$__CD_COMMAND_PWD" != "$PWD"
         zoxide add
     end
 end
