@@ -16,6 +16,19 @@ function init_z --on-event fish_prompt
         zoxide add
     end
 end
+function testz --on-event fish_postexec
+    echo testz $argv[1]
+end
+function testz2 --on-variable PWD
+    echo testz2 $PWD
+end
+
+function testz3
+    cd /tmp
+    cd /etc
+    cd -
+    cd -
+end
 
 if not set -q NO_FISH_INIT
     init_abbr
