@@ -10,24 +10,10 @@ else
     set -xg _base64_command 'base64'
 end
 
-
-function init_z --on-event fish_prompt
-    if command_exists zoxide
+function init_z --on-event fish_postexec
+    if contains cd (string split -- ' ' "$argv[1]"); and command_exists zoxide
         zoxide add
     end
-end
-function testz --on-event fish_postexec
-    echo testz $argv[1]
-end
-function testz2 --on-variable PWD
-    echo testz2 $PWD
-end
-
-function testz3
-    cd /tmp
-    cd /etc
-    cd -
-    cd -
 end
 
 if not set -q NO_FISH_INIT
