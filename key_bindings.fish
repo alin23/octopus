@@ -15,8 +15,8 @@ bind \e\e\[A history-token-search-backward
 bind \e\[1\;5B history-token-search-forward
 bind \e\e\[B history-token-search-forward
 bind \e, history-token-search-forward
-bind \et 'lsd -l --tree; and commandline -f repaint'
-bind \el 'lsd -l; and commandline -f repaint'
+bind \et 'list_current_token --tree'
+bind \el 'list_current_token'
 bind \eT '__tldr'
 bind \eH '__help_cmd'
 bind \eM '__mkdir_current'
