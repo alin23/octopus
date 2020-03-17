@@ -1,6 +1,8 @@
 function set_rust_src_path
     if not set -q NO_FISH_INIT
-        command_exists rustc; and set -xg RUST_SRC_PATH (rustc --print sysroot)"/lib/rustlib/src/rust/src"
+        command_exists rustc
+        and not set -q RUST_SRC_PATH
+        and set -xg RUST_SRC_PATH (rustc --print sysroot)"/lib/rustlib/src/rust/src"
     end
 end
 

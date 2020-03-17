@@ -27,11 +27,9 @@ function __zoxide_add --on-event fish_postexec
     end
 end
 
-if not set -q NO_FISH_INIT
-    init_abbr
-end
 init_env
 if not set -q NO_FISH_INIT
+    init_abbr
     init_pyenv
     init_rbenv
     init_gpg &
