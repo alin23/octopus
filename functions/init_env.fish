@@ -1,8 +1,8 @@
 function set_rust_src_path
     if not set -q NO_FISH_INIT
         command_exists rustc
-        and not set -q RUST_SRC_PATH
-        and set -xg RUST_SRC_PATH (rustc --print sysroot)"/lib/rustlib/src/rust/src"
+        and not test -d "$RUST_SRC_PATH"
+        and set -xU RUST_SRC_PATH (rustc --print sysroot)"/lib/rustlib/src/rust/src"
     end
 end
 
@@ -50,7 +50,6 @@ function init_env
     '--bind \'alt-o:execute(open {}),alt-d:execute(cd (dirname {})),alt-s:execute(subl {}),alt-t:execute(tail -f -n 20 {}),alt-l:execute(less -f {}),alt-c:execute-silent(echo {} | pbcopy),alt-p:execute-silent(echo $PWD/{} | pbcopy)+abort\''
     end
 
-    set_rust_src_path &
     if is_darwin
         set -xg VISUAL sublw
         set -xg EDITOR subl
@@ -81,6 +80,9 @@ function init_env
         set -xg MANPATH "/home/linuxbrew/.linuxbrew/share/man" "$MANPATH"
         set -xg INFOPATH "/home/linuxbrew/.linuxbrew/share/info" "$INFOPATH"
     end
+
+    set_rust_src_path &
+
     if not set -q NO_FISH_INIT
         set -xg CDPATH "." "$CDPATH" "$HOME" "$HOME/Projects" "$HOME/Github" (list_top_dirs $HOME/Github) "$HOME/Gitlab" (list_top_dirs $HOME/Gitlab) "$HOME/.config" 2>/dev/null
     end
