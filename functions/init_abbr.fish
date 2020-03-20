@@ -353,11 +353,6 @@ function init_abbr
         abbr -a ll 'lsd -l'
         abbr -a la 'lsd -lA'
         abbr -a lt 'lsd -l --tree'
-    else if command_exists exa
-        abbr -a l exa
-        abbr -a ll 'exa -l'
-        abbr -a la 'exa -la'
-        abbr -a lt 'exa -l -T'
     end
 
     command_exists truncate
