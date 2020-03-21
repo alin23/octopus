@@ -130,9 +130,11 @@ function init_abbr
         abbr -a ga 'git add'
         abbr -a gaa 'git add .'
 
-        abbr -a gdfc 'git difftool --no-symlinks --dir-diff --cached'
+        abbr -a gdfc 'git difftool --ignore-space-at-eol -b -w --ignore-blank-lines --no-symlinks --dir-diff --cached'
+        abbr -a gdfwc 'git difftool --no-symlinks --dir-diff --cached'
         abbr -a gdc 'git diff --cached'
-        abbr -a gdf 'git difftool --no-symlinks --dir-diff'
+        abbr -a gdf 'git difftool --ignore-space-at-eol -b -w --ignore-blank-lines --no-symlinks --dir-diff'
+        abbr -a gdfw 'git difftool --no-symlinks --dir-diff'
         abbr -a gd 'git diff'
 
         abbr -a gl 'git log'
@@ -149,6 +151,7 @@ function init_abbr
 
         abbr -a gm 'git remote'
         abbr -a gma 'git remote add'
+        abbr -a gmao 'git remote add origin'
         abbr -a gmo 'git remote get-url origin'
         abbr -a gmso 'git remote set-url origin'
 
