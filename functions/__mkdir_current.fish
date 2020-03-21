@@ -1,5 +1,5 @@
 function __mkdir_current
-    echo ''
+    echo 'Creating dir commandline -t'
     mkdir -vp (commandline -t)
     commandline -f repaint
 end
