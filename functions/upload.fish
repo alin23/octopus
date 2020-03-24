@@ -1,6 +1,6 @@
 function upload
     set -l file_to_upload $argv[1]
-    argparse --name upload 'u/url=' 'n/name=' 'd/dir' -- $argv[2..-1]
+    argparse --name upload 'u/url=' 'n/name=' 'd/dir=' -- $argv[2..-1]
 
     set -l dir_to_upload alinpanaitiu
     if set -q _flag_dir
