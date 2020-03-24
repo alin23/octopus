@@ -369,4 +369,5 @@ function init_abbr
         abbr -a zq "zoxide query"
         abbr -a zr "zoxide remove"
     end
+    alias multitail='multitail -F $HOME/.config/multitail/multitail.conf'
 end
