@@ -7,12 +7,12 @@ function upload
         set dir_to_upload $_flag_dir
     end
 
-    echo $file_to_upload
-    echo $dir_to_upload
-    return 0
     if test -d $file_to_upload
-        zip -9 -r /tmp/(basename $file_to_upload).zip $file_to_upload
-        set file_to_upload /tmp/(basename $file_to_upload).zip
+        set -l zip_file /tmp/(basename $file_to_upload).zip
+
+        echo Zipping $file_to_upload to $zip_file
+        zip -9 -r $zip_file $file_to_upload
+        set file_to_upload $zip_file
     end
 
     set -l tld "com"
@@ -25,6 +25,9 @@ function upload
         set filename $_flag_name
     end
 
+    set -l file_url "https://static.$dir_to_upload.$tld/$filename"
+    echo Uploading $file_to_upload to noiseblend:/static/$dir_to_upload/$filename
     rsync -v -e ssh $file_to_upload noiseblend:/static/$dir_to_upload/$filename
-    pbcopy "https://static.$dir_to_upload.$tld/$filename"
+    echo $file_url | pbcopy
+    echo $file_url
 end
