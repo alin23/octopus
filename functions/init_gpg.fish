@@ -1,10 +1,6 @@
 function init_gpg
     if not is_cygwin; and command_exists gpg-agent
-        if is_darwin
-            alias gpg_agent_running='pgrep -q gpg-agent'
-        else
-            alias gpg_agent_running='test (pgrep -c gpg-agent) -gt 0'
-        end
+        alias gpg_agent_running='pgrep gpg-agent >/dev/null'
         if [ -f $HOME/.gnupg/.gpg-agent-info ]; and gpg_agent_running
                 source $HOME/.gnupg/.gpg-agent-info
                 set -xg GPG_AGENT_INFO
