@@ -32,7 +32,7 @@ bind \| 'commandline -it " | "'
 bind \e\| 'commandline -it "|"'
 bind \eb 'catfile'
 bind \ex 'echo ''; echo sudo chmod +x (commandline -t); sudo chmod +x (commandline -t); echo ''; commandline -f repaint'
-bind \ce 'editfile'
+bind \cb 'editfile'
 bind \cs 'echo ''; echo Executing sudo (history -1); eval sudo (history -1); commandline -f repaint'
 bind \ct 'transpose-words'
 if command_exists zoxide
