@@ -1,14 +1,13 @@
 function z
     if test (count $argv) -gt 0
         set _Z_RESULT (zoxide query $argv)
-        switch "$_Z_RESULT"
-            case 'query: *'
+        if test -n "$_Z_RESULT"
+            if string match -qr -- "query: .+" "$_Z_RESULT"
                 cd (string sub -s 8 -- "$_Z_RESULT")
-                commandline -f repaint
-            case '*'
-                if test -n "$_Z_RESULT"
-                    echo "$_Z_RESULT"
-                end
+            else
+                cd "$_Z_RESULT"
+            end
+            commandline -f repaint
         end
     end
 end
