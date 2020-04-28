@@ -11,7 +11,7 @@ function init_abbr
 
     if command_exists et
         abbr -a ett 'et -x -f -r 52698:52698'
-        abbr -a ex 'et -x -f -r 52698:52698 -N -c "tmux a || tmux"'
+        abbr -a ex 'env LC_NO_FISH_INIT=1 et -x -f -r 52698:52698 -N -c "tmux a || tmux"'
     end
     if command_exists sshmux
         abbr -a sx 'sshmux'
