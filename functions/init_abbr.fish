@@ -9,6 +9,10 @@ function init_abbr
         abbr -a mux tmuxinator
     end
 
+    if command_exists et
+        abbr -a ett 'et -x -f -r 52698:52698'
+        abbr -a ex 'etmux'
+    end
     if command_exists sshmux
         abbr -a sx 'sshmux'
         abbr -a sxc 'sshmux -CC'
