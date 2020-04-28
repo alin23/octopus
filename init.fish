@@ -32,7 +32,7 @@ if not set -q NO_FISH_INIT; and not set -q LC_NO_FISH_INIT
     init_abbr
     init_pyenv
     init_rbenv
-    init_gpg &
+    # init_gpg &
 end
 # init_iterm
 # showmail
