@@ -18,6 +18,9 @@ function init_abbr
         abbr -a sxc 'sshmux -CC'
     end
 
+    abbr -a np 'nmap -T4 -v -Pn'
+    abbr -a npa 'nmap -T4 -v -Pn -A'
+
     # Package manager
     if command_exists brew
         abbr -a i 'brew install'
