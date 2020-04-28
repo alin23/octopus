@@ -1,5 +1,5 @@
 function set_rust_src_path
-    if not set -q NO_FISH_INIT
+    if not set -q NO_FISH_INIT; and not set -q LC_NO_FISH_INIT
         command_exists rustc
         and not test -d "$RUST_SRC_PATH"
         and set -xU RUST_SRC_PATH (rustc --print sysroot)"/lib/rustlib/src/rust/src"
@@ -7,7 +7,7 @@ function set_rust_src_path
 end
 
 function init_env
-    if not set -q NO_FISH_INIT
+    if not set -q NO_FISH_INIT; and not set -q LC_NO_FISH_INIT
         set -xg LESSCHARSET utf-8
         set -xg LESS '-r --quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
         set -xg LESS_TERMCAP_mb (set_color -o brred) # begin bold
@@ -64,7 +64,7 @@ function init_env
         set -xg PATH "$HOME/.bin" "$HOME/.bin/shared" "$HOME/.cargo/bin" $SCRIPTS "$ANDROID_SDK_ROOT/emulator" "/usr/local/opt/sqlite/bin" "/usr/local/opt/ncurses/bin" "/usr/local/bin" "/usr/local/sbin" $PATH "$HOME/.yarn-config/global/node_modules/.bin" "/usr/local/opt/go/libexec/bin" "$HOME/.go/bin" "$GOBIN" "/usr/local/opt/android-sdk/bin" "$HOME/.local/bin" "/usr/local/opt/coreutils/libexec/gnubin" 2>/dev/null
         set -xg PGDATA /usr/local/var/postgres
     else
-        if not set -q NO_FISH_INIT
+        if not set -q NO_FISH_INIT; and not set -q LC_NO_FISH_INIT
             if command_exists kak
                 set -xg VISUAL kak
                 set -xg EDITOR kak
@@ -84,7 +84,7 @@ function init_env
 
     set_rust_src_path &
 
-    if not set -q NO_FISH_INIT
+    if not set -q NO_FISH_INIT; and not set -q LC_NO_FISH_INIT
         set -xg CDPATH "." "$CDPATH" "$HOME" "$HOME/Projects" "$HOME/Github" (list_top_dirs $HOME/Github) "$HOME/Gitlab" (list_top_dirs $HOME/Gitlab) "$HOME/.config" 2>/dev/null
     end
 
