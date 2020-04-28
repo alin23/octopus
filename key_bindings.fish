@@ -15,38 +15,41 @@ bind \e\e\[A history-token-search-backward
 bind \e\[1\;5B history-token-search-forward
 bind \e\e\[B history-token-search-forward
 bind \e, history-token-search-forward
-bind \et 'list_current_token -l --tree'
-bind \el 'list_current_token -l'
-bind \eT '__tldr'
-bind \eH '__help_cmd'
-bind \eM '__mkdir_current'
+
 bind '~' 'commandline -it $HOME/'
-bind ` 'commandline -it "~/"'
-bind \e` 'commandline -it "`"'
-bind \eW 'commandline -rt ( which (commandline -t) )'
+bind \cb 'catfile'
+bind \ce 'editfile'
 bind \cf\ca 'abbr|fzf'
 bind \cf\cb 'print_bindings|fzf'
-bind \cf\ce 'env|fzf'
 bind \cf\cd 'commandline -it (zoxide query -i)'
-bind § 'commandline -it "~"'
-bind \e\| 'commandline -it " || "'
-bind \eb 'catfile'
-bind \ex 'echo ''; echo sudo chmod +x (commandline -t); sudo chmod +x (commandline -t); echo ''; commandline -f repaint'
-bind \cb 'editfile'
+bind \cf\ce 'env|fzf'
 bind \cs 'echo ''; echo Executing sudo (history -1); eval sudo (history -1); commandline -f repaint'
 bind \ct 'transpose-words'
+bind \e\| 'commandline -it " || "'
+bind \e` 'commandline -it "`"'
+bind \eH '__help_cmd'
+bind \el 'list_current_token -l'
+bind \eM '__mkdir_current'
+bind \eT '__tldr'
+bind \et 'list_current_token -l --tree'
+bind \eW 'commandline -rt ( which (commandline -t) )'
+bind \ex 'echo ''; echo sudo chmod +x (commandline -t); sudo chmod +x (commandline -t); echo ''; commandline -f repaint'
+bind ` 'commandline -it "~/"'
+bind § 'commandline -it "~"'
+
 if command_exists zoxide
     bind \ez 'z -i'
 end
 
-bind \cx\cf "pipeto fzf"
 bind \cx\cb "pipeto 'bat --color always'"
-bind \cx\cs "echo ''; eval sudo (commandline); commandline -f repaint"
-bind \cx\ce "pipeto 'subl -'"
-bind \cx\ch "pipeto head"
-bind \cx\ct "pipeto 'tail -f'"
-bind \cx\cl "pipeto 'wc -l'"
 bind \cx\cc "pipeto pbcopy; echo \nCopied to clipboard: ; pbpaste; commandline -f repaint"
+bind \cx\ce "pipeto 'subl -'"
+bind \cx\cf "pipeto fzf"
+bind \cx\ch "pipeto head"
+bind \cx\cl "pipeto 'wc -l'"
+bind \cx\cr "tmux capture-pane -p -S '-' -E '-' | rsub"
+bind \cx\cs "echo ''; eval sudo (commandline); commandline -f repaint"
+bind \cx\ct "pipeto 'tail -f'"
 bind \cx\cw "eval watch -d --color (commandline); commandline -f repaint"
 
 bind \cx\cx "commandline -it ' | xargs -0 -I \{\} echo \'{}\''; and commandline -C (math (commandline -C) - 5)"
