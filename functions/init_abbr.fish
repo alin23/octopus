@@ -135,6 +135,7 @@ function init_abbr
         set -q _fish_abbr_gcod; or abbr -a gcod 'git checkout develop'
 
         set -q _fish_abbr_ggc; or abbr -a ggc 'git rev-parse HEAD'
+        set -q _fish_abbr_ggb; or abbr -a ggb 'git branch --show-current'
 
         set -q _fish_abbr_ga; or abbr -a ga 'git add'
         set -q _fish_abbr_gaa; or abbr -a gaa 'git add .'
