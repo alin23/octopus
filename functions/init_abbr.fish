@@ -345,7 +345,7 @@ function init_abbr
     set -q _fish_abbr_wh; or abbr -a wh 'which'
     set -q _fish_abbr_wa; or abbr -a wa 'watch -d --color'
     if command_exists mc
-        alias mc='env SHELL=(which fish) TERM=xterm-256color mc'
+        alias mc='env SHELL=(which fish) TERM=xterm-256color VIEWER="bat --pager=always --pager=less" LESS="-r -R --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4" mc'
         set -q _fish_abbr_mcr; or abbr -a mcr 'sudo mc -u'
     end
     if command_exists youtube-dl
