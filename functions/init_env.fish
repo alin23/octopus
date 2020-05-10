@@ -9,7 +9,7 @@ end
 function init_env
     if not set -q NO_FISH_INIT; and not set -q LC_NO_FISH_INIT
         set -xg LESSCHARSET utf-8
-        set -xg LESS '-r --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
+        set -xg LESS '-r -R --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
         set -xg LESS_TERMCAP_mb (set_color -o brred) # begin bold
         set -xg LESS_TERMCAP_md (set_color brred) # begin blink
         set -xg LESS_TERMCAP_me (set_color normal) # reset bold/blink
@@ -52,6 +52,7 @@ function init_env
     end
 
     if is_darwin
+        set -xg VIEWER "bat --paging=always --pager=less"
         set -xg VISUAL sublw
         set -xg EDITOR subl
 
