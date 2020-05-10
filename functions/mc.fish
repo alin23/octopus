@@ -1,7 +1,7 @@
 function mc
     set MC_USER (id | sed 's/[^(]*(//;s/).*//')
     set MC_PWD_FILE "$TMPDIR/mc-$MC_USER/mc.pwd."(echo %self)
-    command mc --nosubshell -P "$MC_PWD_FILE" $argv
+    env SHELL=(which fish) TERM=xterm-256color VIEWER=batview command mc -P "$MC_PWD_FILE" $argv
 
     if test -r "$MC_PWD_FILE"
         set MC_PWD (cat "$MC_PWD_FILE")
