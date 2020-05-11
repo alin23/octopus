@@ -1,4 +1,5 @@
 function ranger
+    set -x TERM xterm-kitty
     if is_darwin
         set -x VISUAL subl
     else
