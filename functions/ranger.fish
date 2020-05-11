@@ -1,6 +1,7 @@
 function ranger
     set -x TERM xterm-kitty
     set -x PYTHONWARNINGS ignore
+    set -x SHELL fish
     if is_darwin
         set -x VISUAL subl
     else
