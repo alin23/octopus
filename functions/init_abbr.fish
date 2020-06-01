@@ -108,6 +108,15 @@ function init_abbr
 
 
     # Git
+    if command_exists git-fuzzy
+        set -q _fish_abbr_gfs; or abbr -a gfs 'git-fuzzy status'
+        set -q _fish_abbr_gfb; or abbr -a gfb 'git-fuzzy branch'
+        set -q _fish_abbr_gfl; or abbr -a gfl 'git-fuzzy log'
+        set -q _fish_abbr_gfr; or abbr -a gfr 'git-fuzzy reflog'
+        set -q _fish_abbr_gfd; or abbr -a gfd 'git-fuzzy diff'
+        set -q _fish_abbr_gfp; or abbr -a gfp 'git-fuzzy pr'
+    end
+
     if command_exists git
         set -q _fish_abbr_gb; or abbr -a gb 'git branch'
         set -q _fish_abbr_gbr; or abbr -a gbr 'git branch -r'
