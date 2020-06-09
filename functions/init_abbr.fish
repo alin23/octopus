@@ -284,6 +284,8 @@ function init_abbr
         abbra kcg 'kubectl get'
         abbra kcd 'kubectl describe'
 
+        abbra kce 'kubectl exec -it'
+
         abbra kcgp 'kubectl get pods'
         abbra kcgd 'kubectl get deployments'
         abbra kcgr 'kubectl get replicasets'
