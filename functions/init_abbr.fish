@@ -277,7 +277,7 @@ function init_abbr
 
     # Kubernetes
     if command_exists kubectl
-        abbra ksn "kubectl config set-context (kubectl config current-context) --namespace="
+        abbra ksn "kubectl config set-context (kubectl config current-context) --namespace"
         abbra ksc "kubectl config use-context"
 
         abbra kc 'kubectl'
