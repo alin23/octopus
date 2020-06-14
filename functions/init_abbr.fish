@@ -66,8 +66,12 @@ function init_abbr
     # OS Specific
     if is_darwin
         abbra kl 'sudo pkill -9 -f -l'
+        abbra kstp 'sudo pkill -STOP -f -l'
+        abbra kcnt 'sudo pkill -CONT -f -l'
     else
         abbra kl 'sudo pkill -9 -f -e'
+        abbra kstp 'sudo pkill -STOP -f -e'
+        abbra kcnt 'sudo pkill -CONT -f -e'
     end
 
     if not is_darwin
