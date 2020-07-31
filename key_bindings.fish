@@ -5,6 +5,8 @@ bind \e= 'nextd ^/dev/null >/dev/null; and commandline -f repaint'
 
 bind \e\[1\;5D backward-bigword
 bind \e\[1\;5C forward-bigword
+bind \eF forward-bigword
+bind \eB backward-bigword
 bind \cw backward-kill-bigword
 bind \eW kill-bigword
 bind \e/ backward-kill-path-component
@@ -23,6 +25,7 @@ bind \cf\ca 'abbr|fzf'
 bind \cf\cb 'print_bindings|fzf'
 bind \cf\cd 'commandline -it (zoxide query -i)'
 bind \cf\ce 'env|fzf'
+bind \cf\ch '__help_cmd|fzf'
 bind \cs 'echo ''; echo Executing sudo (history -1); eval sudo (history -1); commandline -f repaint'
 bind \ct 'transpose-words'
 bind \e\| 'commandline -it " || "'
