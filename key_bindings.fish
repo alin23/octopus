@@ -36,7 +36,7 @@ bind \eM '__mkdir_current'
 bind \eT '__tldr'
 bind \et 'list_current_token -l --tree'
 bind \eW 'commandline -rt ( which (commandline -t) )'
-bind \ex 'echo ''; echo sudo chmod +x (commandline -t); sudo chmod +x (commandline -t); echo ''; commandline -f repaint'
+bind \ex 'echo ''; echo sudo chmod +x (commandline -t); eval sudo chmod +x (commandline -t); echo ''; commandline -f repaint'
 bind ` 'commandline -it "~/"'
 bind § 'commandline -it "~"'
 
@@ -67,4 +67,4 @@ bind \cp\cy "history -6 | tail -n 1 | pbcopy; echo \nCopied: ; pbpaste; commandl
 bind \cp\cu "history -7 | tail -n 1 | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
 bind \cp\ci "history -8 | tail -n 1 | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
 bind \cp\co "history -9 | tail -n 1 | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
-bind \cp\cp "history -10 | tail -n 1 | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
+bind \cp\cp "commandline | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"

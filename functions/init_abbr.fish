@@ -122,6 +122,7 @@ function init_abbr
     # Git
     if command_exists git-fuzzy
         abbra gfs 'git-fuzzy status'
+        abbra gfh 'git-fuzzy stash'
         abbra gfb 'git-fuzzy branch'
         abbra gfl 'git-fuzzy log'
         abbra gfr 'git-fuzzy reflog'
