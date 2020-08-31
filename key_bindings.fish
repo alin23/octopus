@@ -18,7 +18,7 @@ bind \e\[1\;5B history-token-search-forward
 bind \e\e\[B history-token-search-forward
 bind \e, history-token-search-forward
 
-bind '~' 'commandline -it $HOME/'
+bind '~' 'commandline -it \'$HOME/\''
 bind \cb 'catfile'
 bind \ce 'editfile'
 bind \cf\ca 'abbr|fzf'
@@ -67,4 +67,4 @@ bind \cp\cy "history -6 | tail -n 1 | pbcopy; echo \nCopied: ; pbpaste; commandl
 bind \cp\cu "history -7 | tail -n 1 | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
 bind \cp\ci "history -8 | tail -n 1 | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
 bind \cp\co "history -9 | tail -n 1 | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
-bind \cp\cp "commandline | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
+bind \cp\cp "commandline -b | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
