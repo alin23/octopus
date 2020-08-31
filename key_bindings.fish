@@ -39,6 +39,7 @@ bind \eW 'commandline -rt ( which (commandline -t) )'
 bind \ex 'echo ''; echo sudo chmod +x (commandline -t); eval sudo chmod +x (commandline -t); echo ''; commandline -f repaint'
 bind ` 'commandline -it "~/"'
 bind § 'commandline -it "~"'
+bind \eg "commandline -it ' | rg -i '"
 
 if command_exists zoxide
     bind \ez 'z -i'
@@ -56,7 +57,6 @@ bind \cx\ct "pipeto 'tail -f'"
 bind \cx\cw "eval watch -d --color (commandline); commandline -f repaint"
 
 bind \cx\cx "commandline -it ' | xargs -0 -I \{\} echo \'{}\''; and commandline -C (math (commandline -C) - 5)"
-bind \cx\cg "commandline -it ' | rg -i '"
 
 bind \cp\cq "history -1 | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
 bind \cp\cw "history -2 | tail -n 1 | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
