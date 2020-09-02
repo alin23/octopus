@@ -78,9 +78,17 @@ function init_env
             end
         end
 
-        set -xg PATH "$HOME/.bin" "$HOME/.bin/shared" "$HOME/.cargo/bin" "/snap/bin" $PATH "/home/linuxbrew/.linuxbrew/bin" "/home/linuxbrew/.linuxbrew/sbin" "$GOPATH/bin" "/usr/sbin" "/sbin" 2>/dev/null
-        set -xg MANPATH "/home/linuxbrew/.linuxbrew/share/man" "$MANPATH"
-        set -xg INFOPATH "/home/linuxbrew/.linuxbrew/share/info" "$INFOPATH"
+        set -xg PATH "$HOME/.bin" "$HOME/.bin/shared" "$HOME/.cargo/bin" "/snap/bin" $PATH "$GOPATH/bin" "/usr/sbin" "/sbin" 2>/dev/null
+
+        if test -d /home/linuxbrew/.linuxbrew
+            set -q PATH; or set PATH ''; set -gx PATH "/home/linuxbrew/.linuxbrew/bin" "/home/linuxbrew/.linuxbrew/sbin" $PATH;
+            set -q MANPATH; or set MANPATH ''; set -gx MANPATH "/home/linuxbrew/.linuxbrew/share/man" $MANPATH;
+            set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH;
+
+            set -xg HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew";
+            set -xg HOMEBREW_CELLAR "/home/linuxbrew/.linuxbrew/Cellar";
+            set -xg HOMEBREW_REPOSITORY "/home/linuxbrew/.linuxbrew/Homebrew";
+        end
     end
 
     set_rust_src_path &
