@@ -292,7 +292,15 @@ function init_abbr
         abbra kcd 'kubectl describe'
 
         abbra kce 'kubectl exec -it'
+        function kcep
+            set args $argv[2..]
+            if not test "$args"
+                set args bash
+            end
+            kubectl exec -it (kubectl get pods -o custom-columns=NAME:.metadata.name --sort-by=.status.startTime | grep -i $argv[1] | head -n 1) -- $args
+        end
 
+        abbra kcgn 'kubectl get namespace'
         abbra kcgp 'kubectl get pods'
         abbra kcgd 'kubectl get deployments'
         abbra kcgr 'kubectl get replicasets'
@@ -302,10 +310,15 @@ function init_abbr
         abbra kcdd 'kubectl describe deployments'
         abbra kcdr 'kubectl describe replicasets'
         abbra kcds 'kubectl describe services'
+        alias kcdpp='kubectl describe (kubectl get pods -o custom-columns=NAME:.metadata.name --sort-by=.status.startTime | grep -i $argv[1] | head -n 1)'
 
         abbra kcgpw 'kubectl get pod -o wide'
         abbra kcgdw 'kubectl get deployments -o wide'
         abbra kcgrw 'kubectl get replicasets -o wide'
+
+        abbra kcprod 'kubectl config use-context prod.aws.uswest1.k8s.local && kubectl config set-context (kubectl config current-context) --namespace default'
+        abbra kcstg 'kubectl config use-context eks_staging && kubectl config set-context (kubectl config current-context) --namespace staging'
+        abbra kcdev 'kubectl config use-context eks_dev && kubectl config set-context (kubectl config current-context) --namespace develop'
     end
 
     # Kakoune
