@@ -300,11 +300,17 @@ function init_abbr
             kubectl exec -it (kubectl get pods -o custom-columns=NAME:.metadata.name --sort-by=.status.startTime | grep -i $argv[1] | head -n 1) -- $args
         end
 
+        function kclp
+            kubectl logs -f (kubectl get pods -o custom-columns=NAME:.metadata.name --sort-by=.status.startTime | grep -i $argv[1] | head -n 1)
+        end
+
         abbra kcgn 'kubectl get namespace'
         abbra kcgp 'kubectl get pods'
         abbra kcgd 'kubectl get deployments'
         abbra kcgr 'kubectl get replicasets'
         abbra kcgs 'kubectl get services'
+
+        abbra kclf 'kubectl get logs -f'
 
         abbra kcdp 'kubectl describe pods'
         abbra kcdd 'kubectl describe deployments'
