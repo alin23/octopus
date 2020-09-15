@@ -310,7 +310,7 @@ function init_abbr
         abbra kcgr 'kubectl get replicasets'
         abbra kcgs 'kubectl get services'
 
-        abbra kclf 'kubectl get logs -f'
+        abbra kclf 'kubectl logs -f'
 
         abbra kcdp 'kubectl describe pods'
         abbra kcdd 'kubectl describe deployments'
