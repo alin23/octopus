@@ -418,9 +418,6 @@ function init_abbr
     abbra truncate "gtruncate"
     abbra tac gtac
 
-    command_exists sga-ssh
-    abbra mosh "mosh --ssh=sga-ssh"
-
     if command_exists zoxide
         abbra zi "z -i"
         abbra za "zoxide add"
