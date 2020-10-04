@@ -425,4 +425,6 @@ function init_abbr
         abbra zr "zoxide remove"
     end
     alias multitail='multitail -F $HOME/.config/multitail/multitail.conf'
+
+    abbra mkj "make -j(nproc)"
 end
