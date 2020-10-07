@@ -293,7 +293,7 @@ function init_abbr
 
         abbra kce 'kubectl exec -it'
         function kcep
-            set args $argv[2..]
+            set args $argv[2..-1]
             if not test "$args"
                 set args bash
             end
