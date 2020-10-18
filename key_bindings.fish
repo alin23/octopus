@@ -20,6 +20,7 @@ bind \e, history-token-search-forward
 
 bind '~' 'commandline -it \'$HOME/\''
 bind \cb 'catfile'
+bind \cv 'catfile'
 bind \ce 'editfile'
 bind \cf\ca 'abbr|fzf'
 bind \cf\cb 'print_bindings|fzf'
