@@ -1,5 +1,5 @@
 function catfile
-    set -l file (commandline -t)
+    set -l file (eval echo (commandline -t))
 
     if not test -f "$file"
         if command_exists "$file"

@@ -5,7 +5,7 @@ function xcdir
     if set -q _flag_file
         set proj $_flag_file
     else
-        set proj (find . -depth 1 -a -name '*.xcworkspace' 2>/dev/null || find . -depth 1 -a -name '*.xcodeproj' 2>/dev/null)
+        set proj (ls | grep '.xcworkspace' 2>/dev/null || ls | grep '.xcodeproj' 2>/dev/null)
     end
 
     if empty "$proj"
