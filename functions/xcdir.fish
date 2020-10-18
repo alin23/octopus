@@ -5,7 +5,12 @@ function xcdir
     if set -q _flag_file
         set proj $_flag_file
     else
-        set proj (find . -depth 1 -a -name '*.xcodeproj' || find . -depth 1 -a -name '*.xcworkspace')
+        set proj (find . -depth 1 -a -name '*.xcworkspace' 2>/dev/null || find . -depth 1 -a -name '*.xcodeproj' 2>/dev/null)
+    end
+
+    if empty "$proj"
+        echo "No xcode project found"
+        return 1
     end
 
     if set -q _flag_configuration
@@ -20,12 +25,12 @@ function xcdir
         set scheme Release
     end
 
-    if set -q _flag_workspace
-        set workspace '-workspace'
+    if set -q _flag_workspace; or string match -eq xcworkspace $proj
+        set projtype '-workspace'
     else
-        set workspace ''
+        set projtype '-project'
     end
 
 
-    xcodebuild -scheme $scheme $workspace $file ONLY_ACTIVE_ARCH=NO -configuration $config -showBuildSettings | grep -m 1 "BUILT_PRODUCTS_DIR" | grep -oEi "\/.*"
+    xcodebuild -scheme $scheme "$projtype" $proj ONLY_ACTIVE_ARCH=NO -configuration $config -showBuildSettings | grep -m 1 "BUILT_PRODUCTS_DIR" | grep -oEi "\/.*"
 end
