@@ -1,3 +1,3 @@
 function sspy
-    subl (pywhich $argv[1])
+    subl (string replace -r '\.pyc$' .py (pywhich $argv[1]))
 end
