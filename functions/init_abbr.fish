@@ -17,6 +17,14 @@ function init_abbr
         abbra mux tmuxinator
     end
 
+    if command_exists xcp
+        abbra cp xcp
+    end
+
+    if command_exists procs
+        abbra p 'sudo procs'
+    end
+
     if command_exists et
         abbra ett 'et -x -f -r 52698:52698'
         abbra ex 'env LC_NO_FISH_INIT=1 et -x -f -r 52698:52698 -c "tmux a || tmux"'
