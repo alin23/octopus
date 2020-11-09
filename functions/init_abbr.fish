@@ -19,6 +19,8 @@ function init_abbr
 
     if command_exists xcp
         abbra cp xcp
+        abbra cpr 'xcp -r'
+        abbra cpn 'xcp -n'
     end
 
     if command_exists procs
