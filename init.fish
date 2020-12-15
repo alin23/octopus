@@ -27,7 +27,10 @@ function __zoxide_add --on-event fish_postexec
     end
 end
 
-init_env
+if functions -q init_env
+    init_env
+end
+
 if not set -q NO_FISH_INIT; and not set -q LC_NO_FISH_INIT
     if functions -q init_abbr
         init_abbr
