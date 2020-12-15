@@ -44,7 +44,7 @@ bind § 'commandline -it "~"'
 bind \eg "commandline -it ' | rg -i '"
 
 if command_exists zoxide
-    bind \ez 'z -i'
+    bind \ez 'zi'
 end
 
 bind \cx\cb "pipeto 'bat --color always'"

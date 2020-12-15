@@ -428,12 +428,6 @@ function init_abbr
     abbra truncate "gtruncate"
     abbra tac gtac
 
-    if command_exists zoxide
-        abbra zi "z -i"
-        abbra za "zoxide add"
-        abbra zq "zoxide query"
-        abbra zr "zoxide remove"
-    end
     alias multitail='multitail -F $HOME/.config/multitail/multitail.conf'
 
     abbra mkj "make -j(nproc)"
