@@ -29,9 +29,15 @@ end
 
 init_env
 if not set -q NO_FISH_INIT; and not set -q LC_NO_FISH_INIT
-    init_abbr
-    init_pyenv
-    init_rbenv
+    if functions -q init_abbr
+        init_abbr
+    end
+    if functions -q init_pyenv
+        init_pyenv
+    end
+    if functions -q init_rbenv
+        init_rbenv
+    end
     # init_gpg &
 end
 # init_iterm
