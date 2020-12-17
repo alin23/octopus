@@ -424,11 +424,14 @@ function init_abbr
         abbra lt 'lsd -l --tree'
     end
 
-    command_exists truncate
-    abbra truncate "gtruncate"
+    command_exists gtruncate
+    and abbra truncate "gtruncate"
     abbra tac gtac
 
     alias multitail='multitail -F $HOME/.config/multitail/multitail.conf'
 
     abbra mkj "make -j(nproc)"
+
+    command_exists zoxide
+    and zoxide init fish 2>/dev/null | source
 end
