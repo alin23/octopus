@@ -10,21 +10,11 @@ else
     set -xg _base64_command 'base64'
 end
 
-if functions -q init_env
-    init_env
-end
+init_env 2>/dev/null
 
 if not set -q NO_FISH_INIT; and not set -q LC_NO_FISH_INIT
-    if functions -q init_abbr
-        init_abbr
-    end
-    if functions -q init_pyenv
-        init_pyenv
-    end
-    if functions -q init_rbenv
-        init_rbenv
-    end
-    if command_exists zoxide
-        zoxide init fish | source
-    end
+    init_abbr 2>/dev/null
+    init_pyenv 2>/dev/null
+    init_rbenv 2>/dev/null
+    zoxide init fish 2>/dev/null | source
 end
