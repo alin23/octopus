@@ -42,14 +42,14 @@ function init_abbr
     # Package manager
     if command_exists brew
         abbra i 'brew install'
-        abbra ci 'brew cask install'
+        abbra ci 'brew install --cask'
         abbra nf 'brew info'
         abbra s 'brew search'
         abbra cs 'brew search'
         abbra u 'brew uninstall'
         abbra bup 'brew update; and brew upgrade'
-        abbra cnf 'brew cask info'
-        abbra cu 'brew cask uninstall'
+        abbra cnf 'brew info --cask'
+        abbra cu 'brew uninstall --cask'
         abbra cup 'brew cu'
     end
     if command_exists apt-cyg

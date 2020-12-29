@@ -6,7 +6,7 @@ function varcache_expired
 end
 
 function varcache
-    if test (count $argv) -lt 3
+    if test (count $argv) -lt 3 || test -z "$argv[2]"
         echo "Usage: varcache KEY CMD EXPIRATION [compressed]"
         return 1
     end
