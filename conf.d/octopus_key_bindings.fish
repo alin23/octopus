@@ -42,6 +42,7 @@ bind \ex 'echo ''; echo sudo chmod +x (commandline -t); eval sudo chmod +x (comm
 bind ` 'commandline -it "~/"'
 bind § 'commandline -it "~"'
 bind \eg "commandline -it ' | rg -i '"
+bind \eq "git status; commandline -f repaint"
 
 if command_exists zoxide
     bind \ez 'zi'
