@@ -11,6 +11,7 @@ bind \cw backward-kill-bigword
 bind \eW kill-bigword
 bind \e/ backward-kill-path-component
 bind \em 'duplicate_last_token'
+bind \e\[3\;3~ 'kill-word'
 
 bind \e\[1\;5A history-token-search-backward
 bind \e\e\[A history-token-search-backward
@@ -43,6 +44,7 @@ bind ` 'commandline -it "~/"'
 bind § 'commandline -it "~"'
 bind \eg "commandline -it ' | rg -i '"
 bind \eq "git status; commandline -f repaint"
+bind \ed "git diff; commandline -f repaint"
 
 if command_exists zoxide
     bind \ez 'zi'
