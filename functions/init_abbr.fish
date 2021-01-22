@@ -434,4 +434,24 @@ function init_abbr
 
     command_exists zoxide
     and zoxide init fish 2>/dev/null | source
+
+    if command_exists launchctl
+        abbra lc launchctl
+        abbra lcu 'launchctl unload'
+        abbra lcl 'launchctl load'
+        abbra lcls 'launchctl list'
+        abbra lckl 'launchctl kill'
+        abbra lcbl 'launchctl blame'
+        abbra lcbp 'launchctl bootstrap'
+        abbra lcbo 'launchctl bootout'
+        abbra lcrm 'launchctl remove'
+        abbra lcs 'launchctl start'
+        abbra lcp 'launchctl stop'
+        abbra lck 'launchctl kickstart'
+        abbra lcpr 'launchctl print'
+        abbra lcd 'launchctl debug "" --stdout --stderr'
+    end
+
+    abbra unt 'tar xvf'
+    abbra t 'tar acvf'
 end
