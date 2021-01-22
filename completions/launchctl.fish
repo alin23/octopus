@@ -35,7 +35,7 @@ __complete_arg launchctl debug -l environment -d "VARIABLE0=value VARIABLE1=valu
 __complete_arg launchctl print -a "(__suggest_service_targets)"
 __complete_arg launchctl remove -a "(__suggest_service_targets)"
 __complete_arg launchctl kill -a "(__fish_complete_signals)"
-__complete_sub_arg launchctl kill -a "(__suggest_service_targets)"
+__complete_sub_cmd launchctl kill -a "(__suggest_service_targets)"
 __complete_arg launchctl blame -a "(__suggest_service_targets)"
 __complete_arg launchctl enable -a "(__suggest_service_targets)"
 __complete_arg launchctl disable -a "(__suggest_service_targets)"
