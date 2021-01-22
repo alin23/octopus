@@ -449,6 +449,8 @@ function init_abbr
         abbra lcp 'launchctl stop'
         abbra lck 'launchctl kickstart'
         abbra lcpr 'launchctl print'
+        abbra lcprd 'launchctl print-disabled'
+        abbra lcerr 'launchctl error'
         abbra lcd 'launchctl debug "" --stdout --stderr'
     end
 
