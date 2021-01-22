@@ -2,6 +2,11 @@
 ## COMMAND LINE PARSING ##
 ##########################
 
+function __fish_complete_signals -d "Returns a list of signals"
+    __fish_make_completion_signals
+    string replace -ar '\d+\s' SIG $__kill_signals
+end
+
 function __fish_complete_args -d "Returns a list of all arguments given to complete"
 
     set -l tokens (commandline --tokenize --current-process --cut-at-cursor)
