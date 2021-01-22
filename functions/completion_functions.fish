@@ -78,9 +78,9 @@ end
 
 function __suggest_service_targets
     set uid (id -u)
-    launchctl print user/$uid | awk '/\tservices = \{/{p=1;next} /\}/{p=0;next} p {print $4}'
-    launchctl print gui/$uid | awk '/\tservices = \{/{p=1;next} /\}/{p=0;next} p {print $4}'
-    launchctl print system | awk '/\tservices = \{/{p=1;next} /\}/{p=0;next} p {print $4}'
+    launchctl print user/$uid | awk '/\tservices = \{/{p=1;next} /\}/{p=0;next} p {print "user/'$uid'/"$3}'
+    launchctl print gui/$uid | awk '/\tservices = \{/{p=1;next} /\}/{p=0;next} p {print "gui/'$uid'/"$3}'
+    launchctl print system | awk '/\tservices = \{/{p=1;next} /\}/{p=0;next} p {print "system/"$3}'
 end
 
 function __suggest_service_plist
