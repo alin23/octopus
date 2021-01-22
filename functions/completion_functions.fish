@@ -81,27 +81,6 @@ function __complete_sub_arg -a tocomplete cmd sub -d "A shortcut for defining su
     complete -f -c $tocomplete -n "__fish_complete_subcommand $cmd $sub" $argv
 end
 
-function __suggest_service_targets
-    set uid (id -u)
-    launchctl print user/$uid | awk '/\tservices = \{/{p=1;next} /\}/{p=0;next} p {print "user/'$uid'/"$3}'
-    launchctl print gui/$uid | awk '/\tservices = \{/{p=1;next} /\}/{p=0;next} p {print "gui/'$uid'/"$3}'
-    launchctl print system | awk '/\tservices = \{/{p=1;next} /\}/{p=0;next} p {print "system/"$3}'
-end
-
-function __suggest_service_plist
-    ls \
-    ~/Library/LaunchAgents/*.plist \
-    /Library/LaunchAgents/*.plist \
-    /Library/LaunchDaemons/*.plist \
-    /System/Library/LaunchAgents/*.plist \
-    /System/Library/LaunchDaemons/*.plist
-end
-
-function __suggest_service_plist_and_targets
-    __suggest_service_plist
-    __suggest_service_targets
-end
-
 function completion_functions
 
 end

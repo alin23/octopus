@@ -1,9 +1,39 @@
 completion_functions
 
+
+function __suggest_domain_targets
+    set uid (id -u)
+    echo "gui/$uid"
+    echo "user/$uid"
+    echo "system"
+end
+
+function __suggest_service_targets
+    set uid (id -u)
+    launchctl print user/$uid | awk '/\tservices = \{/{p=1;next} /\}/{p=0;next} p {print "user/'$uid'/"$3}'
+    launchctl print gui/$uid | awk '/\tservices = \{/{p=1;next} /\}/{p=0;next} p {print "gui/'$uid'/"$3}'
+    launchctl print system | awk '/\tservices = \{/{p=1;next} /\}/{p=0;next} p {print "system/"$3}'
+end
+
+function __suggest_service_plist
+    ls \
+    ~/Library/LaunchAgents/*.plist \
+    /Library/LaunchAgents/*.plist \
+    /Library/LaunchDaemons/*.plist \
+    /System/Library/LaunchAgents/*.plist \
+    /System/Library/LaunchDaemons/*.plist
+end
+
+function __suggest_service_plist_and_targets
+    __suggest_service_plist
+    __suggest_service_targets
+end
+
 __complete_arg launchctl load -a "(__suggest_service_plist)"
 __complete_arg launchctl unload -a "(__suggest_service_plist)"
 
-__complete_arg launchctl bootstrap -a "(__suggest_service_plist_and_targets)"
+__complete_arg launchctl "bootstrap; and [ (count (__fish_complete_args)) = 1 ]" -a "(__suggest_domain_targets)"
+__complete_arg launchctl "bootstrap; and [ (count (__fish_complete_args)) = 2 ]" -a "(__suggest_service_plist_and_targets)"
 __complete_arg launchctl bootout -a "(__suggest_service_plist_and_targets)"
 
 __complete_arg launchctl kickstart -a "(__suggest_service_targets)"
