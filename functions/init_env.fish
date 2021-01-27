@@ -62,7 +62,7 @@ function init_env
         set -xg ANDROID_HOME /usr/local/share/android-sdk
         set -xg ANDROID_SDK_ROOT /usr/local/share/android-sdk
         set -xg SCRIPTS "$HOME/Documents/Scripts/Python" "$HOME/Documents/Scripts/Shell" "$HOME/Documents/Scripts/AppleScript"
-        set -xg PATH "$HOME/.bin" "$HOME/.bin/shared" "$HOME/.cargo/bin" $SCRIPTS "$ANDROID_SDK_ROOT/emulator" "/usr/local/opt/sqlite/bin" "/usr/local/opt/ncurses/bin" "/usr/local/bin" "/usr/local/sbin" $PATH "$HOME/.yarn-config/global/node_modules/.bin" "/usr/local/opt/go/libexec/bin" "$HOME/.go/bin" "$GOBIN" "/usr/local/opt/android-sdk/bin" "$HOME/.local/bin" "/usr/local/opt/coreutils/libexec/gnubin" 2>/dev/null
+        set -xg PATH "$HOME/.bin" "$HOME/.bin/shared" "$HOME/.cargo/bin" $SCRIPTS "$ANDROID_SDK_ROOT/emulator" "/usr/local/opt/sqlite/bin" "/usr/local/opt/ncurses/bin" "/usr/local/bin" "/usr/local/sbin" $PATH "$HOME/.yarn-config/global/node_modules/.bin" "/usr/local/opt/go/libexec/bin" "$HOME/.go/bin" "$GOBIN" "/usr/local/opt/android-sdk/bin" "$HOME/.local/bin" "/usr/local/opt/coreutils/libexec/gnubin" /opt/homebrew-x86/bin 2>/dev/null
         set -xg PGDATA /usr/local/var/postgres
     else
         if not set -q NO_FISH_INIT; and not set -q LC_NO_FISH_INIT
