@@ -1,5 +1,5 @@
 function addbin
-    argparse --name addbin 'u/url=' 'f/file=' 's/symlink=' 'n/binary-name=' -- $argv
+    argparse --name addbin 'u/url=' 'f/file=' 's/symlink' 'n/binary-name=' -- $argv
     or return 1
 
     if set -q _flag_binary_name
