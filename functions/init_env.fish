@@ -32,6 +32,10 @@ function init_env
         set -xg NNN_OPS_PROG 1
         set -xg NNN_SCRIPT "$HOME/.scripts"
 
+        if command_exists bat
+            set -xg PAGER bat
+        end
+
         set -xg PYTHONBREAKPOINT "pudb.set_trace"
         set -xg CLICOLOR "1"
         set -xg GOPATH "$HOME/go"
