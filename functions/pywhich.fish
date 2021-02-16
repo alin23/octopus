@@ -1,7 +1,8 @@
 function pywhich
     argparse --name sspy 'd/dir' -- $argv
 
-    set module (python -c "import $argv[1]; print($argv[1].__file__)")
+    set arg (string replace -a '-' '_' $argv[1])
+    set module (python -c "import $arg; print($arg.__file__)")
 
     if set -q _flag_dir
         echo (dirname $module)
