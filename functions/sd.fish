@@ -3,6 +3,9 @@ function sd -a text replacement folder
         set folder (pwd)
     end
 
-    set files (rg $argv -l "$text" "$folder")
+    set files (rg $argv[4..-1] -l "$text" "$folder")
+    if empty $files
+        return 1
+    end
     command sd "$text" "$replacement" $files
 end
