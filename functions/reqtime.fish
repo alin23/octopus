@@ -18,4 +18,5 @@ function reqtime --argument url
     '(set_color -o green)'starttransfer:'(set_color normal)' %{time_starttransfer}
     '(set_color -o blue)'total:'(set_color normal)'         %{time_total}
     ' -L $url
+    echo ""
 end
