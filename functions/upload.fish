@@ -35,7 +35,7 @@ function upload
         set -l file_url "https://static."(string lower -- $dir_to_upload)".$tld/$filename"
         echo Uploading $files_to_upload to $filename
         rsync -avzh --progress -L -e ssh $files_to_upload noiseblend:/static/$dir_to_upload/$filename
-        echo $file_url | pbcopy
+        echo -n $file_url | pbcopy
         pbpaste
     else
         echo Uploading files to noiseblend:/static/$dir_to_upload/
