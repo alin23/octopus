@@ -32,7 +32,7 @@ function upload
             set filename $_flag_name
         end
 
-        set -l file_url "https://static.$dir_to_upload.$tld/$filename"
+        set -l file_url "https://static."(string lower -- $dir_to_upload)".$tld/$filename"
         echo Uploading $files_to_upload to $filename
         rsync -avzh --progress -L -e ssh $files_to_upload noiseblend:/static/$dir_to_upload/$filename
         echo $file_url | pbcopy
@@ -42,7 +42,7 @@ function upload
         string join \n -- \t$files_to_upload
         rsync -avzh --progress -L -e ssh $files_to_upload noiseblend:/static/$dir_to_upload/
 
-        set -l file_url "https://static.$dir_to_upload.$tld/"
+        set -l file_url "https://static."(string lower -- $dir_to_upload)".$tld/"
         string join \n -- $file_url(basename $files_to_upload) | pbcopy
         pbpaste
         echo ''
