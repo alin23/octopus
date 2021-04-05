@@ -37,6 +37,7 @@ function upload
         rsync -avzh --progress -L -e ssh $files_to_upload noiseblend:/static/$dir_to_upload/$filename
         echo -n $file_url | pbcopy
         pbpaste
+        echo ''
     else
         echo Uploading files to noiseblend:/static/$dir_to_upload/
         string join \n -- \t$files_to_upload
