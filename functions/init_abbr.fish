@@ -34,6 +34,7 @@ function init_abbr
     if command_exists sshmux
         abbra sx 'sshmux'
         abbra sxc 'sshmux -CC'
+        abbra mx 'sshmux --mosh'
     end
 
     abbra np 'nmap -T4 -v -Pn'

@@ -8,6 +8,12 @@ function addbin
         set binpath "$HOME/.bin/shared/"(basename "$_flag_url$_flag_file")
     end
 
+    if test -L binpath
+        rm $binpath
+    else if test -f binpath
+        bkp $binpath
+    end
+
     if set -q _flag_url
         echo Downloading $_flag_url to $binpath
         wget -O "$binpath" "$_flag_url"
