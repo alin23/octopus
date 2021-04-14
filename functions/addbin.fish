@@ -8,9 +8,9 @@ function addbin
         set binpath "$HOME/.bin/shared/"(basename "$_flag_url$_flag_file")
     end
 
-    if test -L binpath
+    if test -L "$binpath"
         rm $binpath
-    else if test -f binpath
+    else if test -f "$binpath"
         bkp $binpath
     end
 
