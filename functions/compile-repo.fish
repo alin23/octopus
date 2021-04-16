@@ -1,5 +1,6 @@
-function compile-repo -a repo
+function compile-repo
     argparse -n compile-repo 'c/cmake' 'i/install' -- $argv
+    set repo $argv[1]
     cl $repo
 
     if set -q _flag_cmake
