@@ -393,6 +393,9 @@ function init_abbr
         abbra dkv 'docker volume'
         abbra dkn 'docker network'
         abbra dkps 'docker ps'
+        abbra dke 'docker exec --it'
+        abbra dkr 'docker run --rm -it'
+        abbra dxu 'docker context use'
     end
 
     abbra tf 'tail -f -n 100'
