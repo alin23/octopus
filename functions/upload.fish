@@ -7,10 +7,18 @@ function upload
     end
 
     set -l tld "com"
+    if test $dir_to_upload = "lunar"
+        set dir_to_upload "Lunar"
+    end
+    if test $dir_to_upload = "noiseblend"
+        set dir_to_upload "Noiseblend"
+    end
     if test $dir_to_upload = "Lunar"
         set tld "fyi"
     end
-
+    if test $dir_to_upload = "darkwoods"
+        set tld "win"
+    end
 
     for file_to_upload in $argv
         set -l file_to_upload (realpath $file_to_upload)
