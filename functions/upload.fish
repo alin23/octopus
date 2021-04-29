@@ -1,5 +1,11 @@
+function randomize_filename -a filepath
+    set ext (basename $filepath | awk -F . 'index($0, ".") {if (index($0, ".tar.")) {print "."$(NF-1)"."$NF} else {print "."$NF}}')
+    set hash (sha1sum $filepath | cut -d' ' -f 1)
+    echo "$hash""$ext"
+end
+
 function upload
-    argparse --name upload 'u/url=' 'n/name=' 'd/dir=' -- $argv
+    argparse --name upload 'u/url=' 'n/name=' 'd/dir=' 'r/randomize' -- $argv
 
     set -l dir_to_upload alinpanaitiu
     if set -q _flag_dir
@@ -38,21 +44,34 @@ function upload
         set -l filename (basename $file_to_upload)
         if set -q _flag_name
             set filename $_flag_name
+        else if set -q _flag_randomize
+            set filename (randomize_filename "$files_to_upload[1]")
         end
 
         set -l file_url "https://static."(string lower -- $dir_to_upload)".$tld/$filename"
-        echo Uploading $files_to_upload to $filename
+        echo Uploading (set_color -o yellow)$files_to_upload(set_color normal) to (set_color -o blue)$filename(set_color normal)
         rsync -avzh --progress -L -e ssh $files_to_upload noiseblend:/static/$dir_to_upload/$filename
         echo -n $file_url | pbcopy
         pbpaste
         echo ''
     else
         echo Uploading files to noiseblend:/static/$dir_to_upload/
-        string join \n -- \t$files_to_upload
-        rsync -avzh --progress -L -e ssh $files_to_upload noiseblend:/static/$dir_to_upload/
+        set filenames $files_to_upload
+
+        if set -q _flag_randomize
+            for i in (seq 1 (count $files_to_upload))
+                set filenames[$i] (randomize_filename "$files_to_upload[$i]")
+
+                echo \t(set_color -o yellow)"$files_to_upload[$i]"(set_color normal)'  =>  '(set_color -o blue)"$filenames[$i]"(set_color normal)
+                rsync -avzh --progress -L -e ssh "$files_to_upload[$i]" "noiseblend:/static/$dir_to_upload/$filenames[$i]"
+            end
+        else
+            string join \n -- \t$files_to_upload
+            rsync -avzh --progress -L -e ssh $files_to_upload noiseblend:/static/$dir_to_upload/
+        end
 
         set -l file_url "https://static."(string lower -- $dir_to_upload)".$tld/"
-        string join \n -- $file_url(basename $files_to_upload) | pbcopy
+        string join \n -- $file_url$filenames | pbcopy
         pbpaste
         echo ''
     end
