@@ -4,7 +4,7 @@ function svgtopng
     set svg $argv[1]
     set png (set -q argv[2]; and echo $argv[2]; or echo (basename -s .svg $svg).png)
 
-    echo inkscape \
+    inkscape \
         --export-filename="$png" --export-dpi=$dpi \
-        --export-background-opacity=0 "$svg"
+        --export-background-opacity=0 $argv[3..] "$svg"
 end
