@@ -1,4 +1,6 @@
-function cl
-    git clone --recursive git@github.com:$argv[1] $HOME/Github/$argv[1]
-    cd $HOME/Github/$argv[1]
+function cl -a repo
+    set repo (remote repo)
+    
+    git clone --recursive git@github.com:$repo $HOME/Github/$repo
+    cd $HOME/Github/$repo
 end

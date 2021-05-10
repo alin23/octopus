@@ -1,4 +1,6 @@
-function clb
-    git clone --recursive git@gitlab.com:$argv[1] $HOME/Gitlab/$argv[1]
-    cd $HOME/Gitlab/$argv[1]
+function clb -a repo
+    set repo (remote repo)
+
+    git clone --recursive git@gitlab.com:$repo $HOME/Gitlab/$repo
+    cd $HOME/Gitlab/$repo
 end
