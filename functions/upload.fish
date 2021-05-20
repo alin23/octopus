@@ -30,10 +30,13 @@ function upload
         set -l file_to_upload (realpath $file_to_upload)
 
         if test -d $file_to_upload
-            set -l zip_file /tmp/(basename $file_to_upload).zip
+            set folder_name (basename $file_to_upload)
+            set folder_parent (dirname $file_to_upload)
+            set -l zip_file "/tmp/$folder_name.zip"
 
+            cd $folder_parent
             echo Zipping $file_to_upload to $zip_file
-            zip -9 -r $zip_file $file_to_upload
+            zip -9 -r $zip_file $folder_name
             set file_to_upload $zip_file
         end
 
