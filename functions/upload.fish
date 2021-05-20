@@ -34,9 +34,9 @@ function upload
             set folder_parent (dirname $file_to_upload)
             set -l zip_file "/tmp/$folder_name.zip"
 
-            cd $folder_parent
+            cd $file_to_upload
             echo Zipping $file_to_upload to $zip_file
-            zip -9 -r $zip_file $folder_name
+            zip -9 -r $zip_file (ls -A)
             set file_to_upload $zip_file
         end
 
@@ -44,7 +44,7 @@ function upload
     end
 
     if test (count $files_to_upload) -eq 1
-        set -l filename (basename $file_to_upload)
+        set -l filename (basename $files_to_upload[1])
         if set -q _flag_name
             set filename $_flag_name
         else if set -q _flag_randomize
