@@ -54,6 +54,7 @@ function upload
         set -l file_url "https://static."(string lower -- $dir_to_upload)".$tld/$filename"
         echo Uploading (set_color -o yellow)$files_to_upload(set_color normal) to (set_color -o blue)$filename(set_color normal)
         rsync -avzh --progress -L -e ssh $files_to_upload noiseblend:/static/$dir_to_upload/$filename
+        cfpurge $file_url
         echo -n $file_url | pbcopy
         pbpaste
         echo ''
@@ -76,6 +77,9 @@ function upload
         set -l file_url "https://static."(string lower -- $dir_to_upload)".$tld/"
         string join \n -- $file_url$filenames | pbcopy
         pbpaste
+        for url in (string join \n -- $file_url$filenames)
+            cfpurge $url
+        end
         echo ''
     end
 end
