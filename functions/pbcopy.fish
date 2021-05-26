@@ -1,14 +1,14 @@
 function tempfile
-    if command_exists tempfile
-        command tempfile
-    else
+    if command_exists mktemp
         command mktemp
+    else
+        command tempfile
     end
 end
 
 function pbcopy
     set unamestr (uname)
-    if test "$unamestr" = 'Linux'
+    if test "$unamestr" = Linux
         set -xg TMPF_PBCOPY (tempfile)
         cat | tee $TMPF_PBCOPY | nc -q0 localhost 2224
     else if string match -qr 'FreeBSD|Darwin' -- "$unamestr"
