@@ -395,6 +395,9 @@ function init_abbr
         abbra dkps 'docker ps'
         abbra dke 'docker exec -it'
         abbra dkr 'docker run --rm -it'
+        abbra dkl 'docker logs'
+        abbra dklf 'docker logs -f'
+        abbra dklfs 'docker logs -f --since 5m'
         abbra dxu 'docker context use'
     end
 
