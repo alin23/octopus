@@ -32,7 +32,7 @@ function init_abbr
         abbra ex 'env LC_NO_FISH_INIT=1 et -x -f -r 52698:52698 -c "tmux a || tmux"'
     end
     if command_exists sshmux
-        abbra sx 'sshmux'
+        abbra sx sshmux
         abbra sxc 'sshmux -CC'
         abbra mx 'sshmux --mosh'
     end
@@ -270,7 +270,7 @@ function init_abbr
         abbra pytb 'rainbow -f pytb --'
     end
     if command_exists ipython
-        abbra ipy 'ipython'
+        abbra ipy ipython
         abbra ipyml 'ipython --profile=ml'
         abbra ipysp 'ipython --profile=spfy'
         abbra ipyspa 'ipython --profile=spfy_async'
@@ -285,11 +285,11 @@ function init_abbr
 
     # Sublime
     if command_exists subl
-        abbra ss 'subl'
+        abbra ss subl
         abbra fishc 'subl $HOME/.config/fish/config.fish'
     end
     if command_exists rsub
-        abbra rs 'rsub'
+        abbra rs rsub
         abbra srs 'sudo rsub -f'
     end
 
@@ -298,7 +298,7 @@ function init_abbr
         abbra ksn "kubectl config set-context (kubectl config current-context) --namespace"
         abbra ksc "kubectl config use-context"
 
-        abbra kc 'kubectl'
+        abbra kc kubectl
         abbra kcg 'kubectl get'
         abbra kcd 'kubectl describe'
 
@@ -340,13 +340,13 @@ function init_abbr
 
     # Kakoune
     if command_exists kak
-        abbra k 'kak'
+        abbra k kak
         abbra sk 'sudo kak'
     end
 
     # Docker
     if command_exists docker-compose
-        abbra dcm 'docker-compose'
+        abbra dcm docker-compose
 
         abbra dcu 'docker-compose up'
         abbra dcud 'docker-compose up -d'
@@ -387,7 +387,7 @@ function init_abbr
         abbra dkk 'docker stack'
         abbra dkkd 'docker stack deploy'
         abbra dkkr 'docker stack rm'
-        abbra dk 'docker'
+        abbra dk docker
         abbra dkc 'docker container'
         abbra dki 'docker image'
         abbra dkv 'docker volume'
@@ -398,19 +398,19 @@ function init_abbr
         abbra dxu 'docker context use'
     end
 
-    abbra tf 'tail -f -n 100'
+    abbra tf 'tail -F -n 100'
     abbra f 'find . -iname '
     abbra own 'sudo chown (whoami)'
     abbra ownall 'sudo chown -R (whoami)'
     abbra reload 'source $HOME/.config/fish/config.fish'
     abbra wgetext 'wget -r -l1 -t1 -nd -N -np -erobots=off -A.pdf'
-    abbra wh 'which'
+    abbra wh which
     abbra wa 'watch -d --color'
     if command_exists mc
         abbra mcr 'sudo mc -u'
     end
     if command_exists youtube-dl
-        abbra ydl 'youtube-dl'
+        abbra ydl youtube-dl
     end
     if test -f /Applications/VLC.app/Contents/MacOS/VLC
         abbra vlc '/Applications/VLC.app/Contents/MacOS/VLC'
@@ -429,7 +429,7 @@ function init_abbr
     end
 
     command_exists gtruncate
-    and abbra truncate "gtruncate"
+    and abbra truncate gtruncate
     abbra tac gtac
 
     alias multitail='multitail -F $HOME/.config/multitail/multitail.conf'
