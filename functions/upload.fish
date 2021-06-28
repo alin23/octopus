@@ -5,25 +5,25 @@ function randomize_filename -a filepath
 end
 
 function upload
-    argparse --name upload 'u/url=' 'n/name=' 'd/dir=' 'r/randomize' -- $argv
+    argparse --name upload 'u/url=' 'n/name=' 'd/dir=' -/debug r/randomize -- $argv
 
     set -l dir_to_upload alinpanaitiu
     if set -q _flag_dir
         set dir_to_upload $_flag_dir
     end
 
-    set -l tld "com"
-    if test $dir_to_upload = "lunar"
-        set dir_to_upload "Lunar"
+    set -l tld com
+    if test $dir_to_upload = lunar
+        set dir_to_upload Lunar
     end
-    if test $dir_to_upload = "noiseblend"
-        set dir_to_upload "Noiseblend"
+    if test $dir_to_upload = noiseblend
+        set dir_to_upload Noiseblend
     end
-    if test $dir_to_upload = "Lunar"
-        set tld "fyi"
+    if test $dir_to_upload = Lunar
+        set tld fyi
     end
-    if test $dir_to_upload = "darkwoods"
-        set tld "win"
+    if test $dir_to_upload = darkwoods
+        set tld win
     end
 
     for file_to_upload in $argv
@@ -53,32 +53,52 @@ function upload
 
         set -l file_url "https://static."(string lower -- $dir_to_upload)".$tld/$filename"
         echo Uploading (set_color -o yellow)$files_to_upload(set_color normal) to (set_color -o blue)$filename(set_color normal)
-        rsync -avzh --progress -L -e ssh $files_to_upload noiseblend:/static/$dir_to_upload/$filename
-        cfpurge $file_url
+        if set -q _flag_debug
+            echo rsync -avzh --progress -L -e ssh $files_to_upload noiseblend:/static/$dir_to_upload/$filename
+        else
+            rsync -avzh --progress -L -e ssh $files_to_upload noiseblend:/static/$dir_to_upload/$filename
+        end
+        if set -q _flag_debug
+            echo cfpurge $file_url
+        else
+            cfpurge $file_url
+        end
         echo -n $file_url | pbcopy
         pbpaste
         echo ''
     else
         echo Uploading files to noiseblend:/static/$dir_to_upload/
-        set filenames $files_to_upload
+        set filenames (basename $files_to_upload)
 
         if set -q _flag_randomize
             for i in (seq 1 (count $files_to_upload))
                 set filenames[$i] (randomize_filename "$files_to_upload[$i]")
 
                 echo \t(set_color -o yellow)"$files_to_upload[$i]"(set_color normal)'  =>  '(set_color -o blue)"$filenames[$i]"(set_color normal)
-                rsync -avzh --progress -L -e ssh "$files_to_upload[$i]" "noiseblend:/static/$dir_to_upload/$filenames[$i]"
+                if set -q _flag_debug
+                    echo rsync -avzh --progress -L -e ssh "$files_to_upload[$i]" "noiseblend:/static/$dir_to_upload/$filenames[$i]"
+                else
+                    rsync -avzh --progress -L -e ssh "$files_to_upload[$i]" "noiseblend:/static/$dir_to_upload/$filenames[$i]"
+                end
             end
         else
             string join \n -- \t$files_to_upload
-            rsync -avzh --progress -L -e ssh $files_to_upload noiseblend:/static/$dir_to_upload/
+            if set -q _flag_debug
+                echo rsync -avzh --progress -L -e ssh $files_to_upload noiseblend:/static/$dir_to_upload/
+            else
+                rsync -avzh --progress -L -e ssh $files_to_upload noiseblend:/static/$dir_to_upload/
+            end
         end
 
         set -l file_url "https://static."(string lower -- $dir_to_upload)".$tld/"
         string join \n -- $file_url$filenames | pbcopy
         pbpaste
         for url in (string join \n -- $file_url$filenames)
-            cfpurge $url
+            if set -q _flag_debug
+                echo cfpurge $url
+            else
+                cfpurge $url
+            end
         end
         echo ''
     end

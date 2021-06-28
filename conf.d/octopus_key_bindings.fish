@@ -5,8 +5,8 @@ bind \e= 'nextd ^/dev/null >/dev/null; and commandline -f repaint'
 
 bind \e\[1\;5D backward-bigword
 bind \e\[1\;5C forward-bigword
-bind \eF forward-bigword
-bind \eB backward-bigword
+# bind \eF forward-bigword
+# bind \eB backward-bigword
 bind \cw backward-kill-bigword
 bind \eW kill-bigword
 bind \e/ backward-kill-path-component
