@@ -5,7 +5,7 @@ function randomize_filename -a filepath
 end
 
 function upload
-    argparse --name upload 'u/url=' 'n/name=' 'd/dir=' -/debug r/randomize -- $argv
+    argparse --name upload 'u/url=' 'n/name=' 'd/dir=' debug r/randomize -- $argv
 
     set -l dir_to_upload alinpanaitiu
     if set -q _flag_dir
