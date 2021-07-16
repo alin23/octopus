@@ -1,7 +1,7 @@
 bind \es 'set c (commandline -C); and commandline -C 0; and commandline -i "sudo "; and commandline -C (math $c+5)'
 bind \ew 'printf "\n%s\n" (which (commandline -t)); and commandline -f repaint'
-bind \e- 'prevd ^/dev/null >/dev/null; and commandline -f repaint'
-bind \e= 'nextd ^/dev/null >/dev/null; and commandline -f repaint'
+bind \e- 'prevd; and commandline -f repaint'
+bind \e= 'nextd; and commandline -f repaint'
 
 bind \e\[1\;5D backward-bigword
 bind \e\[1\;5C forward-bigword
@@ -10,8 +10,8 @@ bind \e\[1\;5C forward-bigword
 bind \cw backward-kill-bigword
 bind \eW kill-bigword
 bind \e/ backward-kill-path-component
-bind \em 'duplicate_last_token'
-bind \e\[3\;3~ 'kill-word'
+bind \em duplicate_last_token
+bind \e\[3\;3~ kill-word
 
 bind \e\[1\;5A history-token-search-backward
 bind \e\e\[A history-token-search-backward
@@ -20,9 +20,9 @@ bind \e\e\[B history-token-search-forward
 bind \e, history-token-search-forward
 
 bind '~' 'commandline -it \'$HOME/\''
-bind \cb 'catfile'
-bind \cv 'catfile'
-bind \ce 'editfile'
+bind \cb catfile
+bind \cv catfile
+bind \ce editfile
 bind \cf\ca 'abbr|fzf'
 bind \cf\cb 'print_bindings|fzf'
 bind \cf\cd 'commandline -it (zoxide query -i)'
@@ -30,16 +30,16 @@ bind \cf\ce 'env|fzf'
 bind \cf\ch '__help_cmd|fzf'
 bind \cf\ci 'commandline -it (sqlite3 $HOME/.local/fsindex.db "SELECT path FROM fsindex" | fzf) 2>/dev/null; commandline -f repaint'
 bind \cs 'echo ''; echo Executing sudo (history -1); eval sudo (history -1); commandline -f repaint'
-bind \ct 'transpose-words'
+bind \ct transpose-words
 bind \e\| 'commandline -it " || "'
 bind \e` 'commandline -it "`"'
-bind \eH '__help_cmd'
+bind \eH __help_cmd
 bind \el 'list_current_token -l'
 bind \eA 'list_current_token -la'
 bind \eL 'echo ""; realpath (current_file_or_bin); commandline -f repaint'
 bind \ep 'commandline -rt (brew --prefix (commandline -t))'
-bind \eM '__mkdir_current'
-bind \eT '__tldr'
+bind \eM __mkdir_current
+bind \eT __tldr
 bind \et 'list_current_token -l --tree'
 bind \eW 'commandline -rt ( which (commandline -t) )'
 bind \ex 'echo ''; echo sudo chmod +x (commandline -t); eval sudo chmod +x (commandline -t); echo ''; commandline -f repaint'
@@ -50,7 +50,7 @@ bind \eq "git status; commandline -f repaint"
 bind \ed "git diff; commandline -f repaint"
 
 if command_exists zoxide
-    bind \ez 'zi'
+    bind \ez zi
 end
 
 bind \cx\cb "pipeto 'bat --color always'"

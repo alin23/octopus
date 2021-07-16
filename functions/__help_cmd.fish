@@ -1,6 +1,6 @@
 function __help_cmd
     for cmd in (commandline -o)
-        if test $cmd != 'sudo' -a $cmd != 'env'
+        if test $cmd != sudo -a $cmd != env
             set realcmd $cmd
             break
         else
@@ -10,11 +10,11 @@ function __help_cmd
 
     if set -q realcmd
         echo ''
-        if $realcmd --help >/dev/null ^/dev/null
+        if $realcmd --help >/dev/null 2>/dev/null
             $realcmd --help
-        else if $realcmd -help >/dev/null ^/dev/null
+        else if $realcmd -help >/dev/null 2>/dev/null
             $realcmd -help
-        else if $realcmd -h >/dev/null ^/dev/null
+        else if $realcmd -h >/dev/null 2>/dev/null
             $realcmd -h
         else
             $realcmd --help

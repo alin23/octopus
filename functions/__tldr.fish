@@ -14,12 +14,12 @@ function __tldr
     set -l output ''
     set -l IFS ''
     if set -q args[2]
-        set output (tldr "$maincmd-$args[2]" ^/dev/null)
-        or set output (tldr "$maincmd" ^/dev/null)
+        set output (tldr "$maincmd-$args[2]" 2>/dev/null)
+        or set output (tldr "$maincmd" 2>/dev/null)
         and echo $output
         or printf \a
     else
-        set output (tldr "$maincmd" ^/dev/null)
+        set output (tldr "$maincmd" 2>/dev/null)
         and echo $output
         or printf \a
     end
