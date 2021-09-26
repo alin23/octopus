@@ -51,7 +51,7 @@ function upload
             set filename (randomize_filename "$files_to_upload[1]")
         end
 
-        set -l file_url "https://static."(string lower -- $dir_to_upload)".$tld/$filename"
+        set -l file_url "https://files."(string lower -- $dir_to_upload)".$tld/$filename"
         echo Uploading (set_color -o yellow)$files_to_upload(set_color normal) to (set_color -o blue)$filename(set_color normal)
         if set -q _flag_debug
             echo rsync -avzh --progress -L -e ssh $files_to_upload noiseblend:/static/$dir_to_upload/$filename
@@ -90,7 +90,7 @@ function upload
             end
         end
 
-        set -l file_url "https://static."(string lower -- $dir_to_upload)".$tld/"
+        set -l file_url "https://files."(string lower -- $dir_to_upload)".$tld/"
         string join \n -- $file_url$filenames | pbcopy
         pbpaste
         for url in (string join \n -- $file_url$filenames)
