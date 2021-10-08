@@ -6,8 +6,8 @@ function debounce
         set seconds $_flag_seconds
     end
 
-    set executingPath /tmp/executing-(string escape --style=var -- "$argv")
-    set onFinishPath /tmp/on-finish-(string escape --style=var -- "$argv")
+    set executingPath /tmp/executing-(string escape --style=var -- "$argv" | sha1sum | awk '{print $1}')
+    set onFinishPath /tmp/on-finish-(string escape --style=var -- "$argv" | sha1sum | awk '{print $1}')
 
     if not test -f "$executingPath"
         touch "$executingPath"
