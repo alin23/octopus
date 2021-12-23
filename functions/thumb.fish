@@ -1,8 +1,8 @@
 function thumb
     set -l ext (string match -r '\..+$' $argv[1])
-    set -l format "%s_$argv[2]"
+    set format "%s_$argv[2]"
     if test -n $argv[3]
-        set -l format $argv[3]
+        set format $argv[3]
     end
     vipsthumbnail $argv[1] \
     --vips-progress \

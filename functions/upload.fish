@@ -56,7 +56,7 @@ function upload
         if set -q _flag_debug
             echo rsync -avzh --progress -L -e ssh $files_to_upload noiseblend:/static/$dir_to_upload/$filename
         else
-            rsync -avzh --progress -L -e ssh $files_to_upload noiseblend:/static/$dir_to_upload/$filename
+            rsync -avzh --progress -L -e ssh $files_to_upload noiseblend:/static/$dir_to_upload/$filename || return 1
         end
         if set -q _flag_debug
             echo cfpurge $file_url
@@ -78,7 +78,7 @@ function upload
                 if set -q _flag_debug
                     echo rsync -avzh --progress -L -e ssh "$files_to_upload[$i]" "noiseblend:/static/$dir_to_upload/$filenames[$i]"
                 else
-                    rsync -avzh --progress -L -e ssh "$files_to_upload[$i]" "noiseblend:/static/$dir_to_upload/$filenames[$i]"
+                    rsync -avzh --progress -L -e ssh "$files_to_upload[$i]" "noiseblend:/static/$dir_to_upload/$filenames[$i]" || return 1
                 end
             end
         else
@@ -86,7 +86,7 @@ function upload
             if set -q _flag_debug
                 echo rsync -avzh --progress -L -e ssh $files_to_upload noiseblend:/static/$dir_to_upload/
             else
-                rsync -avzh --progress -L -e ssh $files_to_upload noiseblend:/static/$dir_to_upload/
+                rsync -avzh --progress -L -e ssh $files_to_upload noiseblend:/static/$dir_to_upload/ || return 1
             end
         end
 
