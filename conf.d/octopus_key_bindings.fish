@@ -77,5 +77,5 @@ bind \cp\ci "history -8 | tail -n 1 | pbcopy; echo \nCopied: ; pbpaste; commandl
 bind \cp\co "history -9 | tail -n 1 | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
 bind \cp\cp "commandline -b | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
 
-bind \e- undo
-bind \e= redo
+bind \e_ undo
+bind \e+ redo
