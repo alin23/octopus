@@ -4,7 +4,7 @@ function thumb -a filename size output
     if set -q argv[3]
         set format $output
     end
-    echo vipsthumbnail $filename \
+    vipsthumbnail $filename \
         --vips-progress \
         --linear \
         --size=$size \
