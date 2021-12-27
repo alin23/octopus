@@ -1,13 +1,13 @@
-function thumb
-    set -l ext (string match -r '\..+$' $argv[1])
-    set format "%s_"(basename -s $ext "$argv[1]")
+function thumb -a filename size output
+    set -l ext (string match -r '\..+$' $filename)
+    set format "%s_$size"
     if set -q argv[3]
-        set format $argv[3]
+        set format $output
     end
-    vipsthumbnail $argv[1] \
+    echo vipsthumbnail $filename \
         --vips-progress \
         --linear \
-        --size=$argv[2] \
+        --size=$size \
         --vips-concurrency=4 \
         -o "$format$ext" \
         --eprofile='/System/Library/ColorSync/Profiles/sRGB Profile.icc' \
