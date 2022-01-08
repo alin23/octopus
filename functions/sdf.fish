@@ -1,4 +1,4 @@
-function sd -a text replacement folder
+function sdf -a text replacement folder
     if empty "$folder"
         set folder (pwd)
     end
