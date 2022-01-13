@@ -4,7 +4,7 @@ function source_pyenv
 end
 
 function init_pyenv
-    if not command_exists pyenv
+    if not command_exists pyenv; or not contains "$HOME/.pyenv/shims" $PATH
         set -xg PATH "$HOME/.pyenv/shims" "$HOME/.pyenv/bin" $PATH
     end
     if status --is-interactive; and command_exists pyenv
