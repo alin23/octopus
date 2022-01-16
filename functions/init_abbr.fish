@@ -425,10 +425,10 @@ function init_abbr
     end
 
     if command_exists lsd
-        abbra l lsd
-        abbra ll 'lsd -l'
-        abbra la 'lsd -lA'
-        abbra lt 'lsd -l --tree'
+        abbra l 'lsd --group-dirs first'
+        abbra ll 'lsd --group-dirs first -l'
+        abbra la 'lsd --group-dirs first -lA'
+        abbra lt 'lsd --group-dirs first -l --tree'
     end
 
     command_exists gtruncate
