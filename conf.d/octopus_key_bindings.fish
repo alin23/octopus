@@ -29,6 +29,7 @@ bind \cf\cd 'commandline -it (zoxide query -i)'
 bind \cf\ce 'env|fzf --preview="echo {1..} | fish_indent --ansi" --preview-window="bottom:10:wrap"'
 bind \cf\ch '__help_cmd|fzf'
 bind \cf\ci 'commandline -it (sqlite3 $HOME/.local/fsindex.db "SELECT path FROM fsindex" | fzf) 2>/dev/null; commandline -f repaint'
+bind \e\\ 'commandline -it (sqlite3 $HOME/.local/fsindex.db "SELECT path FROM fsindex" | fzf) 2>/dev/null; commandline -f repaint'
 bind \cs 'echo ''; echo Executing sudo (history -1); eval sudo (history -1); commandline -f repaint'
 bind \ct transpose-words
 bind \e\| 'commandline -it " || "'
