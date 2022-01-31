@@ -49,7 +49,7 @@ function init_env
         '--multi '\
         '--color fg:-1,bg:-1,hl:yellow:bold,fg+:18,bg+:#44424f,hl+:yellow:bold,info:#494460,prompt:magenta,spinner:#555570:bold,pointer:8,marker:9 '\
         '--bind \'f2:execute(kitty-tab {}),f3:execute-silent(qlmanage -p {} &),f4:execute(subl {}),f5:execute-silent(pcp {}),f6:execute-silent(qmv -f do -e sublw {} &),f7:execute(opendir {}),f8:execute(trash {}),f9:execute(alf {}),f10:execute(open {}),f11:execute(tail -F -n 100 {} < /dev/tty),f12:execute(bat -f {} < /dev/tty)+abort\' '\
-        '--preview-window bottom:follow '\
+        '--preview-window bottom '\
         '--preview=\'__fzf_universal_preview {}\' '\
         '--bind \'ctrl-p:change-preview-window(80%,border-bottom|right|hidden|)\''
     end
