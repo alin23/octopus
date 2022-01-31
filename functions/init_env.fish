@@ -98,6 +98,9 @@ function init_env
 
     if not set -q NO_FISH_INIT; and not set -q LC_NO_FISH_INIT
         set -xg CDPATH "." "$CDPATH" "$HOME" "$HOME/Projects" "$HOME/Github" (list_top_dirs $HOME/Github) "$HOME/Gitlab" (list_top_dirs $HOME/Gitlab) "$HOME/.config" 2>/dev/null
+        if command_exists opam
+            eval (opam env)
+        end
     end
 
     if test -d $HOME/n
