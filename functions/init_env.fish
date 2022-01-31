@@ -1,3 +1,6 @@
+set fishpath (which fish 2>/dev/null)
+test "$SHELL" = "$fishpath" || set -xg SHELL $fishpath
+
 function set_rust_src_path
     if not set -q NO_FISH_INIT; and not set -q LC_NO_FISH_INIT
         command_exists rustc
