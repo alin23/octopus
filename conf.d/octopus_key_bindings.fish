@@ -3,6 +3,8 @@ bind \ew 'printf "\n%s\n" (which (commandline -t)); and commandline -f repaint'
 bind \e- 'prevd; and commandline -f repaint'
 bind \e= 'nextd; and commandline -f repaint'
 
+bind \e\[1\;3D backward-word
+bind \e\[1\;3C forward-word
 bind \e\[1\;5D backward-bigword
 bind \e\[1\;5C forward-bigword
 # bind \eF forward-bigword
