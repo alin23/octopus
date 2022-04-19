@@ -1,5 +1,5 @@
 function debounce
-    argparse --name debounce 's/seconds=' 'i/id=' -- $argv
+    argparse --name debounce 's/seconds=' 'i/id=' skipfirst -- $argv
 
     set seconds 3
     if set -q _flag_seconds
@@ -14,9 +14,15 @@ function debounce
     set executingPath /tmp/executing-$id
     set onFinishPath /tmp/on-finish-$id
 
+    if set -q _flag_skipfirst
+        touch "$onFinishPath"
+    end
+
     if not test -f "$executingPath"
         touch "$executingPath"
-        $argv
+        if not set -q _flag_skipfirst
+            $argv
+        end
 
         fish -c "begin
             sleep $seconds
