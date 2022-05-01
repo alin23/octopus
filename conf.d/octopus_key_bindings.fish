@@ -53,7 +53,7 @@ bind \eq "git status; commandline -f repaint"
 bind \ed "git diff; commandline -f repaint"
 
 if command_exists zoxide
-    bind \ez zi
+    bind \ez "zi; commandline -f repaint"
 end
 
 bind \cx\cb "pipeto 'bat --color always'"
@@ -69,16 +69,18 @@ bind \cx\cw "eval watch -d --color (commandline); commandline -f repaint"
 
 bind \cx\cx "commandline -it ' | xargs -0 -I \{\} echo \'{}\''; and commandline -C (math (commandline -C) - 5)"
 
-bind \cp\cq "history -1 | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
-bind \cp\cw "history -2 | tail -n 1 | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
-bind \cp\ce "history -3 | tail -n 1 | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
-bind \cp\cr "history -4 | tail -n 1 | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
-bind \cp\ct "history -5 | tail -n 1 | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
-bind \cp\cy "history -6 | tail -n 1 | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
-bind \cp\cu "history -7 | tail -n 1 | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
-bind \cp\ci "history -8 | tail -n 1 | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
-bind \cp\co "history -9 | tail -n 1 | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
-bind \cp\cp "commandline -b | pbcopy; echo \nCopied: ; pbpaste; commandline -f repaint"
+bind \cp\cq "history -1 | pbcopy; echo -n \n'Copied: '; pbpaste; echo ''; commandline -f repaint"
+bind \cp\cw "history -2 | tail -n 1 | pbcopy; echo -n \n'Copied: '; pbpaste; echo ''; commandline -f repaint"
+bind \cp\ce "history -3 | tail -n 1 | pbcopy; echo -n \n'Copied: '; pbpaste; echo ''; commandline -f repaint"
+bind \cp\cr "history -4 | tail -n 1 | pbcopy; echo -n \n'Copied: '; pbpaste; echo ''; commandline -f repaint"
+bind \cp\ct "history -5 | tail -n 1 | pbcopy; echo -n \n'Copied: '; pbpaste; echo ''; commandline -f repaint"
+bind \cp\cy "history -6 | tail -n 1 | pbcopy; echo -n \n'Copied: '; pbpaste; echo ''; commandline -f repaint"
+bind \cp\cu "history -7 | tail -n 1 | pbcopy; echo -n \n'Copied: '; pbpaste; echo ''; commandline -f repaint"
+bind \cp\ci "history -8 | tail -n 1 | pbcopy; echo -n \n'Copied: '; pbpaste; echo ''; commandline -f repaint"
+bind \cp\co "history -9 | tail -n 1 | pbcopy; echo -n \n'Copied: '; pbpaste; echo ''; commandline -f repaint"
+bind \cp\cp "commandline -b | pbcopy; echo -n \n'Copied: '; pbpaste; echo ''; commandline -f repaint"
+bind \cp\cl "commandline -t | pbcopy; echo -n \n'Copied: '; pbpaste; echo ''; commandline -f repaint"
+
 
 bind \e_ undo
 bind \e+ redo
