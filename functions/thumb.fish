@@ -3,7 +3,7 @@ function thumb
 
     for filename in $argv
         set -l ext (string match -r '\..+$' $filename)
-        set format "%s_$size"
+        set format "%s_$_flag_size"
         if set -q _flag_outputdir
             set format $_flag_outputdir
         end
@@ -18,7 +18,7 @@ function thumb
         vipsthumbnail $filename \
             --vips-progress \
             --linear \
-            --size=$size \
+            --size=$_flag_size \
             --vips-concurrency=(nproc) \
             -o "$format$ext" \
             --delete \
