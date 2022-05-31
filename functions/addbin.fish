@@ -1,5 +1,5 @@
 function addbin
-    argparse --name addbin 'u/url=' 'f/file=' 's/symlink' 'n/binary-name=' -- $argv
+    argparse --name addbin 'u/url=' 'f/file=' s/symlink 'n/binary-name=' -- $argv
     or return 1
 
     if set -q _flag_binary_name
@@ -18,7 +18,7 @@ function addbin
         echo Downloading $_flag_url to $binpath
         wget -O "$binpath" "$_flag_url"
     else if set -q _flag_symlink
-        ln -s "$_flag_file" "$binpath"
+        ln -s "$(realpath $_flag_file)" "$binpath"
     else
         cp "$_flag_file" "$binpath"
     end
