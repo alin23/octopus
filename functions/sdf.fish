@@ -3,9 +3,9 @@ function sdf -a text replacement folder
         set folder (pwd)
     end
 
-    set files (rg $argv[4..-1] -l "$text" "$folder")
+    set files (rg $argv[4..-1] -l "$text" "$folder" | string collect)
     if empty $files
         return 1
     end
-    command sd "$text" "$replacement" $files
+    echo $files | sad --unified 5 --pager 'sh -c "delta -w $FZF_PREVIEW_COLUMNS"' "$text" "$replacement"
 end
