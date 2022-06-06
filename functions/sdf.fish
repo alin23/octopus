@@ -7,5 +7,5 @@ function sdf -a text replacement folder
     if empty $files
         return 1
     end
-    echo $files | sad --unified 5 --pager 'sh -c "delta -w $FZF_PREVIEW_COLUMNS"' "$text" "$replacement"
+    echo $files | sad --unified 5 --pager 'sh -c "delta -w ${FZF_PREVIEW_COLUMNS:-160}"' "$text" "$replacement"
 end
