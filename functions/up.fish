@@ -18,6 +18,9 @@ function up --wraps lift
     if string match -q 'dark*' "$site"
         set site f.darkwoods.win
     end
+    if string match -q 'sub*' "$site"
+        set site f.subsol.one
+    end
     if string match -q 'low*' "$site" || string match -q 'ltg*' "$site"
         set site f.lowtechguys.com
     end
