@@ -408,7 +408,11 @@ function init_abbr
     abbra reload 'source $HOME/.config/fish/config.fish'
     abbra wgetext 'wget -r -l1 -t1 -nd -N -np -erobots=off -A.pdf'
     abbra wh which
-    abbra wa 'watch -d --color'
+    if command_exists viddy
+        abbra wa 'viddy -d'
+    else
+        abbra wa 'watch -d --color'
+    end
     if command_exists mc
         abbra mcr 'sudo mc -u'
     end
@@ -429,6 +433,7 @@ function init_abbr
         abbra ll 'lsd --group-dirs first -l'
         abbra la 'lsd --group-dirs first -lA'
         abbra lt 'lsd --group-dirs first -l --tree'
+        abbra llc 'lsd --group-dirs first -l --color always'
     end
 
     command_exists gtruncate

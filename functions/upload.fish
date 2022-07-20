@@ -16,6 +16,9 @@ function upload
     if test $dir_to_upload = lunar
         set dir_to_upload Lunar
     end
+    if test $dir_to_upload = subsol
+        set tld one
+    end
     if test $dir_to_upload = noiseblend
         set dir_to_upload Noiseblend
     end
