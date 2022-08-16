@@ -84,4 +84,4 @@ bind \cp\cl "commandline -t | string trim | pbcopy; echo -n \n'Copied: '; pbpast
 
 bind \e_ undo
 bind \e+ redo
-bind \e\[3~ 'echo ''; history delete --contains "$(commandline -b)"; commandline -f repaint'
+bind \e\[3\;5~ 'echo ''; history delete --contains "$(commandline -b)"; commandline -f repaint'
