@@ -13,10 +13,6 @@ function init_abbr
         abbra o xdg-open
     end
 
-    if command_exists tmuxinator
-        abbra mux tmuxinator
-    end
-
     if command_exists xcp
         abbra cp xcp
         abbra cpr 'xcp -r'
