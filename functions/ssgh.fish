@@ -1,4 +1,6 @@
-function ssgh
-    git clone git@github.com:$argv[1] $HOME/Github/$argv[1]; or true
-    subl $HOME/Github/$argv[1]
+function ssgh -a repo
+    set repo (remote $repo)
+
+    git clone --filter=blob:none git@github.com:$repo $HOME/Github/$repo; or true
+    subl $HOME/Github/$repo
 end

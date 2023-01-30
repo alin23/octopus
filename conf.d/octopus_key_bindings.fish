@@ -78,8 +78,8 @@ bind \cp\cy "history -6 | tail -n 1 | pbcopy; echo -n \n'Copied: '; pbpaste; ech
 bind \cp\cu "history -7 | tail -n 1 | pbcopy; echo -n \n'Copied: '; pbpaste; echo ''; commandline -f repaint"
 bind \cp\ci "history -8 | tail -n 1 | pbcopy; echo -n \n'Copied: '; pbpaste; echo ''; commandline -f repaint"
 bind \cp\co "history -9 | tail -n 1 | pbcopy; echo -n \n'Copied: '; pbpaste; echo ''; commandline -f repaint"
-bind \cp\cp "commandline -b | string trim | pbcopy; echo -n \n'Copied: '; pbpaste; echo ''; commandline -f repaint"
-bind \cp\cl "commandline -t | string trim | pbcopy; echo -n \n'Copied: '; pbpaste; echo ''; commandline -f repaint"
+bind \cp\cp "string trim -- (commandline -b) | pbcopy; echo -n \n'Copied: '; pbpaste; echo ''; commandline -f repaint"
+bind \cp\cl "string trim -- (commandline -t) | pbcopy; echo -n \n'Copied: '; pbpaste; echo ''; commandline -f repaint"
 
 
 bind \e_ undo
