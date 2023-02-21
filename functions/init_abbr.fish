@@ -422,6 +422,7 @@ function init_abbr
     if command_exists kitty
         abbra icat 'kitty +kitten icat'
         abbra kdf 'kitty +kitten diff'
+        abbra clp 'kitty +kitten clipboard'
     end
 
     if command_exists lsd
