@@ -287,6 +287,8 @@ function init_abbr
     if command_exists rsub
         abbra rs rsub
         abbra srs 'sudo rsub -f'
+        abbra rc 'rsub -p 52696'
+        abbra src 'sudo rsub -p 52696 -f'
     end
 
     # Kubernetes
