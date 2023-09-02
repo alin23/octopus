@@ -35,5 +35,7 @@ function up --wraps lift
 end
 
 set _up_sites 'lunar lowtechguys darkwoods alinpanaitiu noiseblend'
-complete -c up -n "not __fish_seen_subcommand_from $_up_sites" -f -a $_up_sites
+complete -c up -s s -l site -d "Site to upload to"
+complete -c up -s a -l args -d "Args for lift"
+complete -c up -n "__fish_contains_opt -s s site" -n "not __fish_seen_subcommand_from $_up_sites" -f -a $_up_sites
 complete -c up -n "__fish_seen_subcommand_from $_up_sites" -F
