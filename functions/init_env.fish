@@ -45,23 +45,12 @@ function init_env
         set -xg LANGUAGE "en_US.UTF-8"
         set -xg LC_ALL "en_US.UTF-8"
         set -xg NODE_ENV development
-
-        set -xg FZF_DEFAULT_OPTS \
-            '-i --border rounded --info inline --prompt \'•❯ \' --marker • ' \
-                '--header=\''\033'[1;38;5;33mF2'\033'[0m '\033'[1;33mTerminal'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mF3'\033'[0m '\033'[1;33mQuickLook'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mF4'\033'[0m '\033'[1;33mEdit'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mF5'\033'[0m '\033'[1;33mCopy'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mF6'\033'[0m '\033'[1;33mRename'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mF7'\033'[0m '\033'[1;33mOpen Dir'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mF8'\033'[0m '\033'[1;33mTrash'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mF9'\033'[0m '\033'[1;33mActions'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mF10'\033'[0m '\033'[1;33mOpen'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mF11'\033'[0m '\033'[1;33mTail'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mF12'\033'[0m '\033'[1;33mBat'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mCtrl-P'\033'[0m '\033'[1;33mPreview Window'\033'[0m\' ' \
-            '--multi ' \
-            '--color fg:-1,bg:-1,hl:yellow:bold,fg+:18,bg+:#44424f,hl+:yellow:bold,info:#494460,prompt:magenta,spinner:#555570:bold,pointer:8,marker:9 ' \
-            '--bind \'f2:execute(kitty-tab {}),f3:execute-silent(qlmanage -p {} &),f4:execute(subl {}),f5:execute-silent(pcp {}),f6:execute-silent(qmv -f do -e sublw {} &),f7:execute(opendir {}),f8:execute(trash {}),f9:execute(alf {}),f10:execute(open {}),f11:execute(tail -F -n 100 {} < /dev/tty),f12:execute(bat -f {} < /dev/tty)+abort\' ' \
-            '--preview-window bottom:25% ' \
-            '--preview=\'__fzf_universal_preview {}\' ' \
-            '--bind \'ctrl-p:change-preview-window(80%,bottom|right:50%|hidden|)\''
-        set -q FZF_TMUX_HEIGHT || set -U FZF_TMUX_HEIGHT 60%
     end
 
     if is_darwin
         set -xg VIEWER batview
-        set -xg VISUAL sublw
-        set -xg EDITOR subl
+        set -xg VISUAL codew
+        set -xg EDITOR code
 
         set -xg OPENSSL_INCLUDE_DIR /usr/local/opt/openssl/include
         set -xg OPENSSL_LIB_DIR /usr/local/opt/openssl/lib
@@ -104,6 +93,17 @@ function init_env
     set_rust_src_path &
 
     if not set -q NO_FISH_INIT; and not set -q LC_NO_FISH_INIT
+        set -xg FZF_DEFAULT_OPTS \
+            '-i --border rounded --info inline --prompt \'•❯ \' --marker • ' \
+                '--header=\''\033'[1;38;5;33mF2'\033'[0m '\033'[1;33mTerminal'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mF3'\033'[0m '\033'[1;33mQuickLook'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mF4'\033'[0m '\033'[1;33mEdit'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mF5'\033'[0m '\033'[1;33mCopy'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mF6'\033'[0m '\033'[1;33mRename'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mF7'\033'[0m '\033'[1;33mOpen Dir'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mF8'\033'[0m '\033'[1;33mTrash'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mF9'\033'[0m '\033'[1;33mActions'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mF10'\033'[0m '\033'[1;33mOpen'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mF11'\033'[0m '\033'[1;33mTail'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mF12'\033'[0m '\033'[1;33mBat'\033'[0m '\033'[31m•'\033'[0m '\033'[1;38;5;33mCtrl-P'\033'[0m '\033'[1;33mPreview Window'\033'[0m\' ' \
+            '--multi ' \
+            '--color fg:-1,bg:-1,hl:yellow:bold,fg+:18,bg+:#44424f,hl+:yellow:bold,info:#494460,prompt:magenta,spinner:#555570:bold,pointer:8,marker:9 ' \
+            '--bind \'f2:execute(kitty-tab {}),f3:execute-silent(qlmanage -p {} &),f4:execute('$EDITOR' {}),f5:execute-silent(pcp {}),f6:execute-silent(qmv -f do -e '$VISUAL' {} &),f7:execute(opendir {}),f8:execute(trash {}),f9:execute(alf {}),f10:execute(open {}),f11:execute(tail -F -n 100 {} < /dev/tty),f12:execute(bat -f {} < /dev/tty)+abort\' ' \
+            '--preview-window bottom:25% ' \
+            '--preview=\'__fzf_universal_preview {}\' ' \
+            '--bind \'ctrl-p:change-preview-window(80%,bottom|right:50%|hidden|)\''
+        set -q FZF_TMUX_HEIGHT || set -U FZF_TMUX_HEIGHT 60%
+
         set -xg CDPATH "." "$CDPATH" "$HOME" "$HOME/Projects" "$HOME/Github" (list_top_dirs $HOME/Github) "$HOME/Gitlab" (list_top_dirs $HOME/Gitlab) "$HOME/.config" 2>/dev/null
         # if command_exists opam
         #     eval (opam env)

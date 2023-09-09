@@ -58,7 +58,7 @@ end
 
 bind \cx\cb "pipeto 'bat --color always'"
 bind \cx\cc "pipeto pbcopy; echo \nCopied to clipboard: ; pbpaste; commandline -f repaint"
-bind \cx\ce "pipeto 'subl -'"
+bind \cx\ce "pipeto '$EDITOR -'"
 bind \cx\cf "pipeto fzf"
 bind \cx\ch "pipeto head"
 bind \cx\cl "pipeto 'wc -l'"

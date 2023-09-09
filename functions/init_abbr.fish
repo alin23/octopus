@@ -282,8 +282,9 @@ function init_abbr
     # Sublime
     if command_exists subl
         abbra ss subl
-        abbra fishc 'subl $HOME/.config/fish/config.fish'
     end
+    abbra e "$EDITOR"
+    abbra fishc "$EDITOR $HOME/.config/fish/config.fish"
     if command_exists rsub
         abbra rs rsub
         abbra srs 'sudo rsub -f'

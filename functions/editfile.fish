@@ -11,14 +11,6 @@ function editfile
         end
     end
 
-    if command_exists subl
-        subl $file
-    else if command_exists rsub
-        rsub $file
-    else if command_exists kak
-        kak $file
-    else
-        $EDITOR $file
-    end
+    $EDITOR $file
     commandline -f repaint
 end

@@ -2,5 +2,5 @@ function ssgh -a repo
     set repo (remote $repo)
 
     git clone --filter=blob:none git@github.com:$repo $HOME/Github/$repo; or true
-    subl $HOME/Github/$repo
+    $EDITOR $HOME/Github/$repo
 end
