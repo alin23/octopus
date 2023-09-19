@@ -39,7 +39,7 @@ bind \e` 'commandline -it "`"'
 bind \eH __help_cmd
 bind \el 'list_current_token -l'
 bind \eA 'list_current_token -la'
-bind \eL 'echo ""; realpath (current_file_or_bin); commandline -f repaint'
+bind \eL 'commandline -rt (realpath (current_file_or_bin); commandline -f repaint)'
 bind \ep 'commandline -rt (brew --prefix (commandline -t))'
 bind \eM __mkdir_current
 bind \eT __tldr
