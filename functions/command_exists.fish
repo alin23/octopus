@@ -11,7 +11,7 @@ function command_exists
 
     set cmdout (command -s $argv[1]; or which $argv[1] 2>/dev/null | tr -d '[:space:]')
     if test -n "$cmdout"
-        set -xg "$varname"_EXISTS $cmdout
+        set -xU "$varname"_EXISTS $cmdout
         return 0
     end
 
