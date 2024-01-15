@@ -3,8 +3,12 @@ function command_exists
 
     set varname (string escape --style=var -- $argv[1])
     if set -q "$varname"_EXISTS
+        set out (eval echo '$'(echo -n "$varname"_EXISTS))
         if set -q _flag_verbose
-            eval echo '$'(echo -n "$varname"_EXISTS)
+            echo $out
+        end
+        if test -z "$out"
+            return 1
         end
         return 0
     end
@@ -15,5 +19,6 @@ function command_exists
         return 0
     end
 
+    set -xU "$varname"_EXISTS ""
     return 1
 end
