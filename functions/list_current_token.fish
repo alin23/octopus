@@ -1,7 +1,7 @@
-set -xg LSD_EXISTS (which lsd 2>/dev/null)
-set -xg LS_COMMAND ls
-if test -n "$LSD_EXISTS"
+if command_exists lsd
     set -xg LS_COMMAND lsd --group-dirs first
+else
+    set -xg LS_COMMAND ls
 end
 
 function list_current_token --description 'List contents of token under the cursor if it is a directory, otherwise list the contents of the current directory'
