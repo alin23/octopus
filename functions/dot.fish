@@ -4,9 +4,9 @@ function dot -d "Add to dotfiles sync dir" -a path
     set dotfilesPath "$HOME/Dropbox/dotfiles/home/other/$relpath"
     if test -d "$path"
         mkdir -p $dotfilesPath
-        set dotfilesPath (dirname "$dotfilesPath")
+        set dotfilesPath (path dirname "$dotfilesPath")
     else if test -f "$path"
-        mkdir -p (dirname $dotfilesPath)
+        mkdir -p (path dirname $dotfilesPath)
     else
         echo "Path $path does not exist"
         return 1

@@ -10,7 +10,7 @@ function __tldr
 
     # If there are at least two tokens not starting with "-", the second one might be a subcommand.
     # Try "tldr first-second" and fall back to "tldr first" if that doesn't work out.
-    set -l maincmd (basename $args[1])
+    set -l maincmd (path basename $args[1])
     set -l output ''
     set -l IFS ''
     if set -q args[2]

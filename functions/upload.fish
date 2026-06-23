@@ -1,5 +1,5 @@
 function randomize_filename -a filepath
-    set ext (basename $filepath | awk -F . 'index($0, ".") {if (index($0, ".tar.")) {print "."$(NF-1)"."$NF} else {print "."$NF}}')
+    set ext (path basename $filepath | awk -F . 'index($0, ".") {if (index($0, ".tar.")) {print "."$(NF-1)"."$NF} else {print "."$NF}}')
     set hash (sha1sum $filepath | cut -d' ' -f 1)
     echo "$hash""$ext"
 end
@@ -30,11 +30,11 @@ function upload
     end
 
     for file_to_upload in $argv
-        set -l file_to_upload (realpath $file_to_upload)
+        set -l file_to_upload (path resolve $file_to_upload)
 
         if test -d $file_to_upload
-            set folder_name (basename $file_to_upload)
-            set folder_parent (dirname $file_to_upload)
+            set folder_name (path basename $file_to_upload)
+            set folder_parent (path dirname $file_to_upload)
             set -l zip_file "/tmp/$folder_name.zip"
 
             cd $file_to_upload
@@ -47,7 +47,7 @@ function upload
     end
 
     if test (count $files_to_upload) -eq 1
-        set -l filename (basename $files_to_upload[1])
+        set -l filename (path basename $files_to_upload[1])
         if set -q _flag_name
             set filename $_flag_name
         else if set -q _flag_randomize
@@ -71,7 +71,7 @@ function upload
         echo ''
     else
         echo Uploading files to noiseblend:/static/$dir_to_upload/
-        set filenames (basename $files_to_upload)
+        set filenames (path basename $files_to_upload)
 
         if set -q _flag_randomize
             for i in (seq 1 (count $files_to_upload))

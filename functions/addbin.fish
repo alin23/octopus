@@ -5,7 +5,7 @@ function addbin
     if set -q _flag_binary_name
         set binpath "$HOME/.bin/shared/$_flag_binary_name"
     else
-        set binpath "$HOME/.bin/shared/"(basename "$_flag_url$_flag_file")
+        set binpath "$HOME/.bin/shared/"(path basename "$_flag_url$_flag_file")
     end
 
     if test -L "$binpath"
@@ -18,7 +18,7 @@ function addbin
         echo Downloading $_flag_url to $binpath
         wget -O "$binpath" "$_flag_url"
     else if set -q _flag_symlink
-        ln -s "$(realpath $_flag_file)" "$binpath"
+        ln -s "$(path resolve $_flag_file)" "$binpath"
     else
         cp "$_flag_file" "$binpath"
     end

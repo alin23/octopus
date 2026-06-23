@@ -5,7 +5,7 @@ function pywhich
     set module (python -c "import $arg; print($arg.__file__)")
 
     if set -q _flag_dir
-        echo (dirname $module)
+        echo (path dirname $module)
     else
         echo $module
     end

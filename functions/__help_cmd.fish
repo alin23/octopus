@@ -1,6 +1,6 @@
 function __help_cmd
     for cmd in (commandline -o)
-        if test $cmd != sudo -a $cmd != env
+        if test "$cmd" != sudo; and test "$cmd" != env
             set realcmd $cmd
             break
         else

@@ -10,8 +10,8 @@ function list_current_token --description 'List contents of token under the curs
     if test -d $val
         $LS_COMMAND $argv $val
     else
-        set dir (dirname -- $val)
-        if test $dir != . -a -d $dir
+        set dir (path dirname -- $val)
+        if test "$dir" != .; and test -d "$dir"
             $LS_COMMAND $argv $dir
         else
             $LS_COMMAND $argv

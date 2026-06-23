@@ -11,7 +11,7 @@ function transfer -d "Upload to transfer.sh" -a file name maxDownloads maxDays
         if not isatty
             set name $file
         else if test -n "$file"
-            set name (basename $file)
+            set name (path basename $file)
         end
     end
 

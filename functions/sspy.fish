@@ -3,7 +3,7 @@ function sspy
     set module (string replace -r '\.pyc$' .py (pywhich $argv[1]))
 
     if set -q _flag_dir
-        $EDITOR (dirname $module)
+        $EDITOR (path dirname $module)
     else
         $EDITOR $module
     end
