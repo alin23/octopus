@@ -24,7 +24,10 @@ bind \e, history-token-search-forward
 bind '~' 'commandline -it \'$HOME/\''
 bind \cb catfile
 bind \cv catfile
-bind \ce editfile
+# Alt+shift+E, not ctrl+e: ctrl+e is end-of-line in every shell, and the one spelling a phone can
+# send for it (herdr has no End key), so a terminal reached from Auburn needs it back. Alt+e stays
+# fish's own edit_command_buffer, which edits the whole line rather than the file under the cursor.
+bind \eE editfile
 bind \cf\ca 'abbr|fzf'
 bind \cf\cb 'print_bindings|fzf'
 bind \cf\cd 'commandline -it (zoxide query -i)'
