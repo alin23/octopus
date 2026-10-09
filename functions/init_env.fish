@@ -44,7 +44,6 @@ function init_env
         set -xg LANG "en_US.UTF-8"
         set -xg LANGUAGE "en_US.UTF-8"
         set -xg LC_ALL "en_US.UTF-8"
-        set -xg NODE_ENV development
     end
 
     if is_darwin
